@@ -1,0 +1,41 @@
+clude9 Maven 설치
+sudo apt-get remove maven2
+sudo apt-get install maven
+export MAVEN_OPTS="-Xmx256m"
+
+
+
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo add-apt-repository -y "deb http://ppa.launchpad.net/natecarlson/maven3/ubuntu precise main" 
+sudo apt-get update
+sudo apt-get install maven3 --force-yes
+cd
+echo >>.bashrc
+echo export PATH=/usr/share/maven3/bin/mvn:$PATH >>.bashrc
+echo alias i=\'mvn clean install\' >>.bashrc
+source .bashrc
+
+
+
+
+java -version
+rpm -qa | grep jdk
+
+
+
+$ sudo add-apt-repository ppa:webupd8team/java
+명령어를 치고 엔터치고
+비밀번호 치고 기다리면
+
+엔터누를건지 Ctrl+C누를건지 뜨는데 엔터 눌러주고
+$ sudo apt-get update
+명령어를 치고 엔터칩니다
+완료라고 뜨면 다된것입니다
+그다음
+$ sudo apt-get install oracle-java@-installer
+에서 @를 설치하고 싶은 자바의 버전(6,7,8 등)으로 바꾼뒤 명령어를 치고 엔터쳐줍니다
+
+
+gcc 설치
+rpm -qa | grep gcc 확인
+sudo apt-get install build-essential   필수 프로그램 설치
