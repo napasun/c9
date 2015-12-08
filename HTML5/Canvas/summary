@@ -1,0 +1,7 @@
+<!doctype html>
+ - <!doctype html> 태그는 웹 브라우저가 페이지를 표준 모드로 렌더링하도록 지정한다.
+ - HTML5 문서에는 반드시 <!doctype html> 태그를 표기해야 한다.
+ 
+<html lang="ko">
+ - <html lang="ko">는 언어를 정의 하는 태그
+ 한국어 - ko, 영어 - en
