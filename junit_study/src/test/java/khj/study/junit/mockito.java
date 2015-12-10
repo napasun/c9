@@ -65,4 +65,8 @@ public class mockito {
 		//설정 삭제
 		reset(mockList);
 	}
+	
+	/**
+	 * InOrder...
+	 * */
 }
