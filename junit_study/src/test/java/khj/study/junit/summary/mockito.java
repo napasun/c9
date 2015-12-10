@@ -1,4 +1,4 @@
-package khj.study.junit;
+package khj.study.junit.summary;
 
 import static org.junit.Assert.assertEquals;
 

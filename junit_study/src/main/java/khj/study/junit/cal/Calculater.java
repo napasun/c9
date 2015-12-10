@@ -1,4 +1,4 @@
-package khj.study.junit;
+package khj.study.junit.cal;
 
 public class Calculater implements Cal{
 	private Cal mulCal;

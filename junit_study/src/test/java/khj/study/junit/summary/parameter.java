@@ -1,4 +1,4 @@
-package khj.study.junit;
+package khj.study.junit.summary;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import khj.study.junit.cal.Calculater;
 
 
 /**

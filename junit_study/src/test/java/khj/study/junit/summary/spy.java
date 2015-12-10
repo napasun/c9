@@ -1,8 +1,11 @@
-package khj.study.junit;
+package khj.study.junit.summary;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import khj.study.junit.cal.Cal;
+import khj.study.junit.cal.Calculater;
 
 public class spy {
 
