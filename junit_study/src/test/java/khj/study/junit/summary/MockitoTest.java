@@ -20,7 +20,7 @@ import org.mockito.runners.MockitoJUnitRunner;
  * InOrder : 함수가 순서대로 호출되었는 지 확인
  * */
 @RunWith(MockitoJUnitRunner.class)
-public class mockito {
+public class MockitoTest {
 	
 	@Mock
 	private List mock;

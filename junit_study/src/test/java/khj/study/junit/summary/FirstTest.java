@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import khj.study.junit.cal.Calculater;
 
-public class first {
+public class FirstTest {
 	private int temp_value;
 	/**
 	 * 테스트 메스드 정리

@@ -13,7 +13,7 @@ import org.junit.Test;
  * 햄크레스트 매처
  * 사용자 정의 비교 함수
  * */
-public class matcher {
+public class MatcherTest {
 	@Test
 	public void matchTest() {
 		//assertThat(value, mather) 매개변수 : 값, 매처 

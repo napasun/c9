@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import khj.study.junit.cal.Calculater;
 
-public class stub {
+public class StubTest {
 	@Test
 	public void stubTest() {
 		/**

@@ -21,7 +21,7 @@ import khj.study.junit.cal.Calculater;
  * 값의 갯수와 유일한 public 생성자와
  * */
 @RunWith(value=Parameterized.class)
-public class parameter {
+public class ParameterTest {
 	private int expected;
 	private int value_1;
 	private int value_2;
@@ -35,7 +35,7 @@ public class parameter {
 		});
 	}
 	
-	public parameter(int expected, int value_1, int value_2) {
+	public ParameterTest(int expected, int value_1, int value_2) {
 		this.expected = expected;
 		this.value_1 = value_1;
 		this.value_2 = value_2;

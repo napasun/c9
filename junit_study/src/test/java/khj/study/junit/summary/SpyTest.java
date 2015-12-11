@@ -7,7 +7,7 @@ import org.junit.Test;
 import khj.study.junit.cal.Cal;
 import khj.study.junit.cal.Calculater;
 
-public class spy {
+public class SpyTest {
 
 	@Test
 	public void spyTest() {

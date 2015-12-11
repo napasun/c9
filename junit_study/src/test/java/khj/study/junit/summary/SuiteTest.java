@@ -12,7 +12,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * 스위트의 스위트 가능
  * */
 @RunWith(value=Suite.class)
-@SuiteClasses(value= {first.class, matcher.class}) // 담고자하는 테스트 클래스 선언
-public class suite {
+@SuiteClasses(value= {FirstTest.class, MatcherTest.class}) // 담고자하는 테스트 클래스 선언
+public class SuiteTest {
 
 }
