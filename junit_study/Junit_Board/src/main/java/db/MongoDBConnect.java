@@ -1,14 +1,26 @@
 package db;
 
+import java.util.List;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.WriteConcern;
 
 public class MongoDBConnect {
+	public static MongoClient newConnect(String url) {
+		MongoClientURI client = new MongoClientURI(url);
+		
+		MongoClient monClient = new MongoClient(client);
+		
+		return monClient;
+	}
+	
 	public void connect() {
 		MongoClient monClient = new MongoClient("ds057934.mongolab.com",57934);
   
@@ -39,16 +51,27 @@ public class MongoDBConnect {
 	}
 	
 	public static void main(String[] args) {
-		char[] password = "testttt".toCharArray();
 		MongoClientURI client = new MongoClientURI("mongodb://test:testttt@ds057934.mongolab.com:57934/testboarddb");
 		
 		MongoClient monClient = new MongoClient(client);
-		
+		//Mongo mon = new Mongo(host, port)
 		DB db = monClient.getDB("testboarddb"); //DB이름
 		
-		WriteConcern w = new WriteConcern(1,2000);
-
 		DBCollection collection = db.getCollection("boardgroup"); //콜렉션
+		
+		BasicDBObject searchQuery = new BasicDBObject();
+		//searchQuery.put("boardNum", boardGroup.getBoardNum());
+		   
+		DBCursor cursor = collection.find(searchQuery); //쿼리날리기
+		List<DBObject> list =  
+		cursor.toArray();
+		System.out.println(list.size());
+		System.out.println(list.get(0).get("boardNum"));
+		System.out.println(list.get(0).get("boardName"));
+		;
+		/*WriteConcern w = new WriteConcern(1,2000);
+
+		
 		
 		System.out.println(monClient);
 		System.out.println(db);
@@ -59,6 +82,6 @@ public class MongoDBConnect {
 		doc.put("boardNum", 1);
 		doc.put("boardName", "test");
 		
-		collection.insert(doc);
+		collection.insert(doc);*/
 	}
 }
