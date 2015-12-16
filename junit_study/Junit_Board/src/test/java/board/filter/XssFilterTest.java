@@ -17,6 +17,7 @@ public class XssFilterTest {
 	public void conventTest () {
 		String conventStr = XssFilter.convert(content);
 		
-		assertEquals(conventStr.indexOf("<"), -1);		
+		assertEquals(conventStr.indexOf("<"), -1);	
+		assertNotEquals(conventStr.indexOf("&lt;"), -1);
 	}
 }

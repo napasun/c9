@@ -3,7 +3,6 @@ package board.model.board.boardcontent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 public class DefaultBoardContent {
 	Integer boardNum;

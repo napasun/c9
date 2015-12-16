@@ -41,5 +41,6 @@ public class DefaultBoardContentTest {
 		String dateStr = content.getCreateDate("YYYY");
 		
 		assertEquals(dateStr, String.valueOf(cal.get(Calendar.YEAR)));
+		assertNotEquals(dateStr, "2014");
 	}
 }
