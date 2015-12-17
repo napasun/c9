@@ -10,7 +10,7 @@ public class XssFilterTest {
 	
 	@Before
 	public void setUp() {
-		content = "<script> alert(); <script>";
+		content = "<script> alert(); </script>";
 	}
 	
 	@Test
