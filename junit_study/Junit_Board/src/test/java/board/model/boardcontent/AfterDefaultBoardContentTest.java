@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import board.model.board.boardcontent.DefaultBoardContent;
@@ -32,7 +32,7 @@ public class AfterDefaultBoardContentTest {
 		return hour;
 	}
 	
-	@Before
+	@BeforeClass
 	public void NewTagSetupTrue() {
 		newTrue = new ArrayList<DefaultBoardContent>();
 		
@@ -41,7 +41,7 @@ public class AfterDefaultBoardContentTest {
 		newTrue.add(setCalendar(Date(-2), Hour(1)));
 	}
 	
-	@Before
+	@BeforeClass
 	public void NewTagSetupFalse() {
 		falseTrue = new ArrayList<DefaultBoardContent>();
 		
