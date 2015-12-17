@@ -13,6 +13,10 @@ public class DefaultBoardContent {
 	
 	public DefaultBoardContent() {}
 	
+	public DefaultBoardContent(Calendar cal) {
+		this.createDate = cal.getTime();
+	}
+	
 	public DefaultBoardContent(Date createDate) {
 		this.createDate = createDate;
 	}
