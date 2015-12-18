@@ -54,7 +54,10 @@ public class AfterDefaultBoardContentTest {
 		for (DefaultBoardContent content : newTrue) {
 			assertTrue("새 글이 아닙니다. : " + content.getCreateDate(), content.getNewTag());
 		}
-		
+	}
+	
+	@Test
+	public void NotNewTagTest() {
 		for (DefaultBoardContent content : falseTrue) {
 			assertFalse("새 글 입니다. : " + content.getCreateDate(), content.getNewTag());
 		}

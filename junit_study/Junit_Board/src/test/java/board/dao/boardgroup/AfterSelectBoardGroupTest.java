@@ -51,8 +51,8 @@ public class AfterSelectBoardGroupTest {
 	public void AselectBoardGroupTest() {
 		List<BoardGroup> list = boardGroupDao.selectBoardList(setBoardGroup(BoardNum(1), BoardName("")));
 		
-		assertEquals(list.size(), BoardSize(1));
-		assertEquals(list.get(0).getBoardName(), BoardName("test"));
+		assertEquals("값이 없네요", list.size(), BoardSize(1));
+		assertEquals("뭘 찾은 건가요?", list.get(0).getBoardName(), BoardName("test"));
 	}
 	
 	
@@ -60,13 +60,13 @@ public class AfterSelectBoardGroupTest {
 	public void BinsertBoardGroupTest() {	
 		for (BoardGroup boardParam : boardParamList) {
 			List<BoardGroup> list = boardGroupDao.selectBoardList(boardParam);
-			assertEquals(list.size(), BoardSize(0));
+			assertEquals("이미 값이 들어가 있습니다.", list.size(), BoardSize(0));
 			
 			boardGroupDao.insertBoard(boardParam);				
 			list = boardGroupDao.selectBoardList(boardParam.getBoardNum());
 			
-			assertEquals(list.size(), BoardSize(1));
-			assertEquals(list.get(0).getBoardName(), boardParam.getBoardName());
+			assertEquals("값이 안 들어갔어요", list.size(), BoardSize(1));
+			assertEquals("이상한 값이 들어갔네요.", list.get(0).getBoardName(), boardParam.getBoardName());
 		}	
 	}
 	
@@ -77,7 +77,7 @@ public class AfterSelectBoardGroupTest {
 
 			List<BoardGroup> list = boardGroupDao.selectBoardList(boardParam.getBoardNum());
 			
-			assertEquals(list.size(), BoardSize(0));
+			assertEquals("삭제가 안됬구만", list.size(), BoardSize(0));
 		}	
 	}
 }

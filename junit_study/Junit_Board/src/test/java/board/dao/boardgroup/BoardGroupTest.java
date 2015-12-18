@@ -1,10 +1,6 @@
 package board.dao.boardgroup;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
-
-import org.junit.Test;
 
 import board.model.board.boardgroup.BoardGroup;
 
