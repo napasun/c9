@@ -1,5 +1,6 @@
 package board.dao.boardgroup;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoSocketException;
 
 import board.model.board.boardgroup.BoardGroup;
 import db.MongoDBConnect;
@@ -18,7 +20,17 @@ public class BoardGroupDao {
 	private DB db;
 	private DBCollection collection;
 	
-	public BoardGroupDao() {
+	private void connect() {
+		client = MongoDBConnect.newConnect("mongodb://test:testttt@ds057934.mongolab.com:57934/testboarddb");
+		db = client.getDB("testboarddb");
+		collection = db.getCollection("boardgroup"); //콜렉션
+	}
+	
+	public void cleanConnect() {
+		client.close();
+	}
+	
+	public BoardGroupDao() {		
 		client = MongoDBConnect.newConnect("mongodb://test:testttt@ds057934.mongolab.com:57934/testboarddb");
 		db = client.getDB("testboarddb");
 		collection = db.getCollection("boardgroup"); //콜렉션
@@ -37,6 +49,28 @@ public class BoardGroupDao {
 		doc.put("boardName", boardGroup.getBoardName());
 		   
 		collection.insert(doc);
+	}
+	
+	public List<BoardGroup> selectBoardList(Integer boardNum) {
+		BasicDBObject searchQuery = new BasicDBObject();
+		ArrayList<BoardGroup> returnList = new ArrayList<BoardGroup>();
+		
+		if (boardNum != null && !boardNum.equals(0)) {
+			searchQuery.put("boardNum", boardNum);
+		}
+		   
+		DBCursor cursor = collection.find(searchQuery); //쿼리날리기
+		List<DBObject> list =  cursor.toArray();
+		//Column[] columnList = BoardGroup.Column.values();
+		
+		for (DBObject object : list) {
+			BoardGroup bg = new BoardGroup();
+			bg.setBoardNum(Integer.parseInt(String.valueOf(object.get("boardNum"))));
+			bg.setBoardName((String) object.get("boardName"));
+			returnList.add(bg);
+		}
+		
+		return returnList;
 	}
 	
 	public List<BoardGroup> selectBoardList(BoardGroup boardGroup) {

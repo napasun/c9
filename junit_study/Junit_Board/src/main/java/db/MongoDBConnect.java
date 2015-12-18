@@ -1,5 +1,6 @@
 package db;
 
+import java.net.UnknownHostException;
 import java.util.List;
 
 import com.mongodb.BasicDBObject;
@@ -7,10 +8,9 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
-import com.mongodb.WriteConcern;
+import com.mongodb.MongoSocketException;
 
 public class MongoDBConnect {
 	public static MongoClient newConnect(String url) {
@@ -18,7 +18,7 @@ public class MongoDBConnect {
 		
 		MongoClient monClient = new MongoClient(client);
 		
-		return monClient;
+		return monClient;	
 	}
 	
 	public void connect() {
@@ -58,18 +58,21 @@ public class MongoDBConnect {
 		DB db = monClient.getDB("testboarddb"); //DB이름
 		
 		DBCollection collection = db.getCollection("boardgroup"); //콜렉션
+			
+		
 		
 		BasicDBObject searchQuery = new BasicDBObject();
 		//searchQuery.put("boardNum", boardGroup.getBoardNum());
 		   
 		DBCursor cursor = collection.find(searchQuery); //쿼리날리기
-		List<DBObject> list =  
-		cursor.toArray();
+		List<DBObject> list = cursor.toArray();
 		System.out.println(list.size());
 		System.out.println(list.get(0).get("boardNum"));
 		System.out.println(list.get(0).get("boardName"));
-		;
-		/*WriteConcern w = new WriteConcern(1,2000);
+		
+		
+		
+	//	WriteConcern w = new WriteConcern(1,2000);
 
 		
 		
@@ -79,9 +82,9 @@ public class MongoDBConnect {
 		
 		BasicDBObject doc = new BasicDBObject(); //document 생성
 		
-		doc.put("boardNum", 1);
-		doc.put("boardName", "test");
+		doc.put("boardNum", 100);
+		doc.put("boardName", "test00");
 		
-		collection.insert(doc);*/
+		collection.insert(doc);
 	}
 }

@@ -12,10 +12,11 @@ import org.junit.Test;
 import board.model.board.boardcontent.DefaultBoardContent;
 
 public class AfterDefaultBoardContentTest {
-	private Calendar calendar;	
-	private ArrayList<DefaultBoardContent> newTrue, falseTrue;
+	private static Calendar calendar;	
+	private static ArrayList<DefaultBoardContent> newTrue;
+	private static ArrayList<DefaultBoardContent> falseTrue;
 	
-	private DefaultBoardContent setCalendar(int date, int hour) {
+	private static DefaultBoardContent setCalendar(int date, int hour) {
 		calendar =  Calendar.getInstance();
 		
 		calendar.add(Calendar.DATE, date);
@@ -24,16 +25,16 @@ public class AfterDefaultBoardContentTest {
 		return new DefaultBoardContent(calendar);
 	}
 	
-	private int Date(int date) {
+	private static int Date(int date) {
 		return date;
 	}
 	
-	private int Hour(int hour) {
+	private static int Hour(int hour) {
 		return hour;
 	}
 	
 	@BeforeClass
-	public void NewTagSetupTrue() {
+	public static void NewTagSetupTrue() {
 		newTrue = new ArrayList<DefaultBoardContent>();
 		
 		newTrue.add(setCalendar(Date(0), Hour(0)));
@@ -42,7 +43,7 @@ public class AfterDefaultBoardContentTest {
 	}
 	
 	@BeforeClass
-	public void NewTagSetupFalse() {
+	public static void NewTagSetupFalse() {
 		falseTrue = new ArrayList<DefaultBoardContent>();
 		
 		falseTrue.add(setCalendar(Date(-3), Hour(0)));
