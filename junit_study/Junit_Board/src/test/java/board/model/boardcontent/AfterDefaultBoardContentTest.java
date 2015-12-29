@@ -25,13 +25,8 @@ public class AfterDefaultBoardContentTest {
 		return new DefaultBoardContent(calendar);
 	}
 	
-	private static int Date(int date) {
-		return date;
-	}
-	
-	private static int Hour(int hour) {
-		return hour;
-	}
+	private static int Date(int date) { return date;}
+	private static int Hour(int hour) { return hour;}
 	
 	@BeforeClass
 	public static void NewTagSetupTrue() {
@@ -47,6 +42,7 @@ public class AfterDefaultBoardContentTest {
 		falseTrue = new ArrayList<DefaultBoardContent>();
 		
 		falseTrue.add(setCalendar(Date(-3), Hour(0)));
+		falseTrue.add(setCalendar(Date(-4), Hour(0)));
 	}
 	
 	@Test

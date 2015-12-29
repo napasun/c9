@@ -21,17 +21,11 @@ public class AfterSelectBoardGroupTest {
 		return new BoardGroup(boardNum, boardName);
 	}
 	
-	private static Integer BoardNum(Integer boardNum) {
-		return boardNum;
-	}
+	private static Integer BoardNum(Integer boardNum) { return boardNum;}
 	
-	private static String BoardName(String boardName) {
-		return boardName;
-	}
+	private static String BoardName(String boardName) { return boardName;}
 	
-	private int BoardSize(int size) {
-		return size;
-	}
+	private int BoardSize(int size) { return size;}
 	
 	@BeforeClass
 	public static void dbSetUp() {
