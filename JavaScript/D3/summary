@@ -1,0 +1,7 @@
+svg
+    1.html
+    -- rect
+    <rect x="좌표", y="", width="넓이", height="높이"> 4개의 값이 전부 표기 되야함좌표계 : 왼쪽위 원점 오른쪽아래로 갈수록 커짐
+    d3에서 rect를 생성하려면 append를 사용 예 : append("rect")
+    d3에서 특정  요소를 지정할 경우 d3.select()를 사용한다.
+    
