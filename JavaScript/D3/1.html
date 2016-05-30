@@ -21,26 +21,55 @@
                 .attr("width", data[0])
                 .attr("height", "20px")
             */
-            
+           /* 애니메이션
            d3.select("#mygraph")
                 .selectAll("rect")
                 .data(data)
                 .enter()
                 .append("rect")
-                .attr("width", function(d, i) {
-                    return d + "px";
-                })
                 .attr("y", function(d, i) {
                     return i * 20;
                 })
+                .attr("height", "20px")
                 .attr("x", 0)
-                .attr("height", "20px");
+                .attr("width", "0px")
+                .transition()
+                .delay(function(d, i) {
+                    return i * 500;
+                })
+                .duration(2500)
+                .attr("width", function(d, i) {
+                            return d + "px";
+                });
+            */
+            d3.select("#mygraph")
+                .selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("y", function(d, i) {
+                    return i * 20;
+                })
+                .attr("height", "20px")
+                .attr("x", 0)
+                .attr("width", function(d, i) {
+                            return d + "px";
+                })
+                .on("click", function() {
+                    d3.select(this)
+                        .style("fill", "cyan")
+                });
                 
             d3.select("#updateBt")
                 .on("click", function() {
+                    for(var i = 0; i < data.length; i++) {
+                        data[i] = Math.floor(Math.random() * 320);
+                    }
+                    
                     d3.select("#mygraph")
                         .selectAll("rect")
-                        .data(data2)
+                        .data(data)
+                        .transition()
                         .attr("width", function(d, i) {
                             return d + "px";
                          })

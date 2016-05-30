@@ -1,7 +1,44 @@
 svg
-    1.html
+    1.html  가로 막대 그래프
     -- rect
     <rect x="좌표", y="", width="넓이", height="높이"> 4개의 값이 전부 표기 되야함좌표계 : 왼쪽위 원점 오른쪽아래로 갈수록 커짐
     d3에서 rect를 생성하려면 append를 사용 예 : append("rect")
     d3에서 특정  요소를 지정할 경우 d3.select()를 사용한다.
+    속성을 지정할 경우 .attr() 매서드를 사용한다. 예 : attr("속성명", "속성값")
+    attr() 매서드의 두번쨰 파라미터로 함수를 지정할 경우 함수에 데이터셋이 하나씩 전달된다.
+    2개의 파라미터가 전달되고 d, i (값, 숫서)가 전달된다.
+    selectAll() : 교체하거나 추가할 대상을 선택 나중에 동적으로 추가되는 요소들을 선택
+    data() : 준비한 데이터를 데이터셋으로 내부에 저장한다.
+    enter() : 해당 메서드 이후 처리가 적용된다.
+    on() : 이벤트 설정, 첫번째 파라미터로 이벤트 이름 설정(click), 두번쨰 파라미터는 실행될 함수 설정
+    transition() : 그래프 애니메이션 attr() 메서드로 속성값을 변경하기 전에 사용해야 함
+    delay() : 데이터의 대기 시간 지정 d, i 값이 전달 (값, 순서)
+    duration() : 애니메이션 시작에서 종료까지의 시간을 설정 하나의 데이터에 그래프를 그리는 시간
+    style() : 스타일을 개별적으로 설정
+    d3.select(this) : on()메서드 click 이벤트를 등록한 함수 안에서 사용할 경우 클릭한 요소 그 자체를 지정
     
+    외부 데이터 불러오기
+    csv() : csv 파일 불러오기 첫번쨰 파라미터 - 에러 메시지, 두번쨰 파라미터 - 데이터 정보
+    
+    눈금
+    -- 스타일
+    .axis text 눈금의 텍스트 path, line 눈금의 선
+    d3.scale.linear() : 선형스케일 설정
+    domain() : 데이터 범위 domain([시작값, 종료값])
+    range() : 표시할 범위 시작값, 종료값
+    d3.svg.axis() : 눈금을 표시할 함수를 호출
+    scale() : 스케일을 적용
+    orient() : 눈금의 표시 위치를 지정 예 : orient("bottom")
+    눈금은 x, y 속성을 설정해도 원하는 위치로 이동하지 않는 다. 그러므로 transform 속성에 이동할 거리를 지정해야 한다.x
+    attr("transform" , translate(x, y)) 와 같이 지정한다.
+    scale(), rotate(), skewX(), skewY() 확대, 회전, 기울기 지정
+    
+    2.html svg
+    벡터 기반으로 그래픽을 그리는 데 사용하는 마크업 언어
+    사각형 rect, 원 circle, 타원 ellipse, 선 line, 연속 직선 polyline, 다각형 polygon, 패스 path, 문자 text
+    안쪽에서부터 그림이 그려짐 그림을 그릴 때 가장 안쪽에 있는 그림부터 순서대로 그려야함
+    왼쪽위가 원점, 좌표 단위 px
+    rect - x, y : 생략하면 0, width : 넓이, height : 높이, rx : 좌우 방행 둥군 모서리 반지름, ry : 위아래 방향의 둥근 모서리 반지름
+    circle - cx : 원의 중심 x 좌표 생략시 0, cy, r : 원의 반지름
+    그룹 g요소 그룹화 하면 요소의 스타일이나 위치등을 한꺼번에 다룰 수 있게 된다.
+    translate(tx, ty), scale(s), scale(sx, sy), rotate(d), rotate(d, cx, cy)
