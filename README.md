@@ -1,2 +1,2 @@
-# junit_stury
-junit_stury
+# JUnit 공부용
+JUnit 공부용
