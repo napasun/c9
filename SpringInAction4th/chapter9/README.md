@@ -72,7 +72,7 @@
   
 ### 뷰
  * spring-security-taglibs
- * <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %> 태그 라이브러리 선언
- * <security:authentiation property=""> 프로퍼티 접근 331쪽 목록
- * <security:authorize access="hasRole=('ROLE_USER')">
+ * %@ taglib prefix="security" uri="http://www.springframework.org/security/tags" % 태그 라이브러리 선언
+ * security : authentiation property="" 프로퍼티 접근 331쪽 목록
+ * security : authorize access="hasRole=('ROLE_USER')"
  

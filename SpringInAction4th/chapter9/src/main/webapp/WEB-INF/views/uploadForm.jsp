@@ -17,4 +17,6 @@
     </div>
 </body>
 </security:authorize>
+<security:authorize access="hasRole=('permitAll')">
+</security:authorize>
 </html>

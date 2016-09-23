@@ -10,6 +10,7 @@
 		<module>chapter1</module>
 		<module>chapter9</module>
 		<module>chapter7</module>
+		<module>chapter12</module>
 	</modules>
 	
 	<dependencies>

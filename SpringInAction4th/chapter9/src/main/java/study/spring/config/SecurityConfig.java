@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	  protected void configure(HttpSecurity http) throws Exception {
 	    http
 	      .formLogin()
-	        .loginPage("/login")
+	        .loginPage("/loginPage")
 	      .and()
 	        .logout()
 	          .logoutSuccessUrl("/")
@@ -31,16 +31,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	      .authorizeRequests()
 	        .antMatchers("/fileupload/**").authenticated()
 	        .anyRequest().permitAll()
-	      .and()
+	        .and()
 	      .requiresChannel()
-	      	.antMatchers("/").requiresInsecure();
+	      	.antMatchers("/").requiresSecure();
 	  }
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
-	      .inMemoryAuthentication()
-	        .withUser("user").password("password").roles("USER");
+			.inMemoryAuthentication()
+	        .withUser("testuset").password("password").roles("USER", "CASH")
+	        .and()
+	        .withUser("testuset").password("password").roles("USER", "CASH");
 	}
   
 
