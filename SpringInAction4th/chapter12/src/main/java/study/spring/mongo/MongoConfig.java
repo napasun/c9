@@ -25,11 +25,12 @@ public class MongoConfig extends AbstractMongoConfiguration {
 //				"test"
 //				, "testboarddb "
 //				, "testttt".toCharArray());
+		//return new MongoClient(new ServerAddress(host, 57934)
+		//, Arrays.asList(credential)
+		//);	
 		
 		return new MongoClient(new MongoClientURI("mongodb://test:testttt@ds057934.mongolab.com:57934/testboarddb"));
-		//return new MongoClient(new ServerAddress("mongodb://test:testttt@ds057934.mongolab.com:57934/testboarddb", 57934)
-				//, Arrays.asList(credential)
-				//);
+		
 	}
 
 }
