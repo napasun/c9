@@ -11,6 +11,7 @@
 		<module>chapter9</module>
 		<module>chapter7</module>
 		<module>chapter12</module>
+		<module>chapter18</module>
 	</modules>
 	
 	<dependencies>
