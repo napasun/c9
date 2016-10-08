@@ -16,7 +16,12 @@ public class WebSocketStompConfig extends AbstractWebSocketMessageBrokerConfigur
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {
-//    registry.enableStompBrokerRelay("/queue", "/topic");
+    /*registry.enableStompBrokerRelay("/queue", "/topic")
+    .setRelayHost("localhost")
+    .setRelayPort(15672)
+    .setClientLogin("guest")
+    .setClientPasscode("guest");
+    */
     registry.enableSimpleBroker("/queue", "/topic");
     registry.setApplicationDestinationPrefixes("/app");
   }
