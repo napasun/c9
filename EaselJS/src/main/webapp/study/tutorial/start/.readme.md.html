@@ -640,7 +640,7 @@ function setDocumentScrollTop(ypos)
 </head>
 <body class="markdown-body">
 <h1> <a id="easeljs-시작하기" class="anchor" href="#easeljs-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EASELJS 시작하기</h1> 
-<h3> <a id="setting-up-your-html-document" class="anchor" href="#setting-up-your-html-document" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SETTING UP YOUR HTML DOCUMENT</h3> 
+<h3> <a id="html-설정" class="anchor" href="#html-%EC%84%A4%EC%A0%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTML 설정</h3> 
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -658,7 +658,7 @@ function setDocumentScrollTop(ypos)
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre> 
-<p>The script tag on line 4 includes the EaselJS library in our document so that we can work with it. We have a few options for how we do this:</p> 
+<p>4줄에 script tag로 EaselJS 라이브러리를 HTML페이지에 포함시킨다. We have a few options for how we do this:</p> 
 <ol> 
  <li>link to a local copy of the compiled library.</li> 
  <li>link to the compiled library on the the CreateJS CDN (as in this example). This allows the library to be cached for users across all sites that use the library, but only stable versions of the library are available.</li> 
@@ -666,12 +666,12 @@ function setDocumentScrollTop(ypos)
 </ol> 
 <p>The script tag on line 5 contains an empty function that will be called when the page loads. Line 7 is where we are going to put the javascript we'll be writing a bit later.</p> 
 <p>The canvas tag on line 12 has an id so that we can reference it easily, and a defined width and height. It's important to understand that the width &amp; height attributes here set the pixel dimensions of the canvas. If you change the width &amp; height with CSS, it will scale the canvas and your graphics could look fuzzy or pixelated.</p> 
-<h3> <a id="setting-up-the-stage" class="anchor" href="#setting-up-the-stage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SETTING UP THE STAGE</h3> 
+<h3> <a id="stage-설정" class="anchor" href="#stage-%EC%84%A4%EC%A0%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STAGE 설정</h3> 
 <pre><code>var stage = new createjs.Stage(&quot;demoCanvas&quot;);
 </code></pre> 
 <p>This line creates a new Stage and points it at our canvas. The stage contains all of the display objects we will be painting to our canvas. You can either pass the ID of the canvas you want to use, or a reference to it.</p> 
 <p>You'll notice that the Stage class definition is inside of the createjs namespace. This keeps all of the classes in CreateJS from colliding with other libraries' classes. You can configure this namespace if you like, just point the createjs var somewhere else before loading the library.</p> 
-<h3> <a id="creating-a-shape" class="anchor" href="#creating-a-shape" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CREATING A SHAPE</h3> 
+<h3> <a id="shape-생성" class="anchor" href="#shape-%EC%83%9D%EC%84%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SHAPE 생성</h3> 
 <p>Next, we'll create a Shape object, tell it to draw a red circle, position it, and add it to our stage.</p> 
 <pre><code>var circle = new createjs.Shape();
 circle.graphics.beginFill(&quot;red&quot;).drawCircle(0, 0, 50);
@@ -686,7 +686,7 @@ stage.addChild(circle);
 <pre><code>stage.addChild(new createjs.Shape()).set({x:100,y:100}).graphics.f(&quot;red&quot;).dc(0,0,50);
 
 </code></pre> 
-<h3> <a id="updating-the-stage" class="anchor" href="#updating-the-stage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UPDATING THE STAGE</h3> 
+<h3> <a id="stage-업데이트" class="anchor" href="#stage-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STAGE 업데이트</h3> 
 <p>We've set up our display list, but it isn't drawn to the canvas until we tell the stage to update:</p> 
 <pre><code>stage.update();
 </code></pre> 

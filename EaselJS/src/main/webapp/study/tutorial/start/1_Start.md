@@ -1,7 +1,7 @@
 # EASELJS 시작하기
 
 
-### SETTING UP YOUR HTML DOCUMENT
+### HTML 설정
 
 ```
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 </html>
 ```
 
-The script tag on line 4 includes the EaselJS library in our document so that we can work with it. We have a few options for how we do this:
+4줄에 script tag로 EaselJS 라이브러리를 HTML페이지에 포함시킨다. We have a few options for how we do this:
 
 1. link to a local copy of the compiled library.
 2. link to the compiled library on the the CreateJS CDN (as in this example). This allows the library to be cached for users across all sites that use the library, but only stable versions of the library are available.
@@ -34,7 +34,7 @@ The canvas tag on line 12 has an id so that we can reference it easily, and a de
 
 
 
-### SETTING UP THE STAGE
+### STAGE 설정
 
 ```
 var stage = new createjs.Stage("demoCanvas");
@@ -46,7 +46,7 @@ You'll notice that the Stage class definition is inside of the createjs namespac
 
 
 
-### CREATING A SHAPE
+### SHAPE 생성
 
 Next, we'll create a Shape object, tell it to draw a red circle, position it, and add it to our stage.
 
@@ -72,7 +72,7 @@ stage.addChild(new createjs.Shape()).set({x:100,y:100}).graphics.f("red").dc(0,0
 ```
 
 
-### UPDATING THE STAGE
+### STAGE 업데이트
 
 We've set up our display list, but it isn't drawn to the canvas until we tell the stage to update:
 
