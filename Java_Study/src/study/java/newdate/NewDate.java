@@ -9,6 +9,7 @@ import java.time.Month;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,7 +19,7 @@ public class NewDate {
 		//Instant();
 		//duration ();
 		//period();
-		chronoUnit();
+		//chronoUnit();
 		/*
 		localDatePrint();
 		localDateInit();
@@ -30,15 +31,16 @@ public class NewDate {
 		//localTimeAddAndMinus();
 		
 		//localDateTimeInit();
-//		/zoneld();
+		//zoneld();
+		datetimeformatter();
 	}
 	
-	static void Instant() {		//Àı´ë½Ã°£
-		Instant instant = Instant.now();	//¿µ±¹ ±×¶ó´ÏÄ¡ Ãµ¹®´ë ½Ã°£
+	static void Instant() {		//ì ˆëŒ€ì‹œê°„
+		Instant instant = Instant.now();	//ì˜êµ­ ê·¸ë¼ë‹ˆì¹˜ ì²œë¬¸ëŒ€ ì‹œê°„
 		System.out.println(instant);
 	}
 	
-	static void duration () {	// LocalDateTimeÀ» »ç¿ë, ½Ã°£ÀÇ Â÷ÀÌ
+	static void duration () {	// LocalDateTimeì„ ì‚¬ìš©, ì‹œê°„ì˜ ì°¨ì´
         Duration oneHours = Duration.ofHours(1);
         System.out.println(oneHours.getSeconds());	//3600
 
@@ -57,12 +59,12 @@ public class NewDate {
 
         Duration duration = Duration.between(oldDate, newDate);
         
-        //ÀÏ, ½Ã°£, ºĞ, ÃÊ, ³ª³ëÃÊ
+        //ì¼, ì‹œê°„, ë¶„, ì´ˆ, ë‚˜ë…¸ì´ˆ
         System.out.println(duration.toDays());	//781
         System.out.println(duration.toHours());	//18753
 	}
 	
-	static void period() {	//LocalDate¿¡¼­ »ç¿ë
+	static void period() {	//LocalDateì—ì„œ ì‚¬ìš©
         Period tenDays = Period.ofDays(10);
         System.out.println(tenDays.getDays()); //10
 
@@ -86,8 +88,8 @@ public class NewDate {
         System.out.println(period2.getDays());		//9
 	}
 	
-	// ½Ã°£ ºñ±³
-	// ¾ó¸¶³ª Â÷ÀÌ°¡ ³ª´Â Áö Duration ¿¬»ê°ú ºñ½ÁÇÏÁö¸¸ ³â, ¿ø, ÁÖ±îÁö ºñ±³ °¡´ÉÇÏ´Ù.
+	// ì‹œê°„ ë¹„êµ
+	// ì–¼ë§ˆë‚˜ ì°¨ì´ê°€ ë‚˜ëŠ” ì§€ Duration ì—°ì‚°ê³¼ ë¹„ìŠ·í•˜ì§€ë§Œ ë…„, ì›, ì£¼ê¹Œì§€ ë¹„êµ ê°€ëŠ¥í•˜ë‹¤.
 	static void chronoUnit() {
 		LocalDateTime oldDate = LocalDateTime.of(1987, Month.AUGUST, 4, 14, 24, 34);
         LocalDateTime newDate = LocalDateTime.of(2017, Month.FEBRUARY, 9, 10, 11, 12);
@@ -129,7 +131,7 @@ public class NewDate {
          * */
 	}
 	
-	static void localDatePrint() {	//Á» ´õ º¸ÆíÀû °ªÀ¸·Î Ãâ·ÂµÈ´Ù.
+	static void localDatePrint() {	//ì¢€ ë” ë³´í¸ì  ê°’ìœ¼ë¡œ ì¶œë ¥ëœë‹¤.
 		Date date = new Date();
 		System.out.println(date); // Sun Jan 01 00:00:00 KST 2017
 			
@@ -137,10 +139,10 @@ public class NewDate {
 		System.out.println(localdate);	// 2017-01-01
 	}
 	
-	// ±âÁ¸ Date¸¦ ÃÊ±âÈ­ ÇÒ °æ¿ì ³âµµ¿¡´Â 1900³âÀ» ±âÁØÀ¸·Î ÀÌÈÄ ³âµµ¸¦ ´õÇÑ °ª ³Ö°í ¿ù¿¡´Â -1À» ÇÑ ¿ùÀ» ³Ö¾î¾ß Çß´Ù.
-	// LocalDate¿¡¼­´Â Á» ´õ ¸í½ÃÀûÀ¸·Î ³¯Â¥¸¦ ÃÊ±âÈ­ ÇÒ ¼ö ÀÖ´Ù.
+	// ê¸°ì¡´ Dateë¥¼ ì´ˆê¸°í™” í•  ê²½ìš° ë…„ë„ì—ëŠ” 1900ë…„ì„ ê¸°ì¤€ìœ¼ë¡œ ì´í›„ ë…„ë„ë¥¼ ë”í•œ ê°’ ë„£ê³  ì›”ì—ëŠ” -1ì„ í•œ ì›”ì„ ë„£ì–´ì•¼ í–ˆë‹¤.
+	// LocalDateì—ì„œëŠ” ì¢€ ë” ëª…ì‹œì ìœ¼ë¡œ ë‚ ì§œë¥¼ ì´ˆê¸°í™” í•  ìˆ˜ ìˆë‹¤.
 	static void localDateInit() {	
-		Date date = new Date(117, 1, 1);	// ¿ùÀÌ 1ºÎÅÍ ½ÃÀÛÇÑ´Ù.
+		Date date = new Date(117, 1, 1);	// ì›”ì´ 1ë¶€í„° ì‹œì‘í•œë‹¤.
 		System.out.println(date);
 		
 		LocalDate localdate = LocalDate.of(2017, 2, 1);
@@ -148,9 +150,9 @@ public class NewDate {
 		System.out.println(localdate);
 	}
 	
-	// ±âÁ¸ÀÇ ³¯Â¥ ¿¬»êÀÇ °æ¿ì Calendar °´Ã¼¸¦ »ç¿ëÇØ¾ß Çß´Ù.
-	// LocalDate¿¡¼­´Â plus(Days|Months|Weeks|Years)¸¦ Á¦°øÇÑ´Ù.
-	// ¿¬»ê ¸Ş¼­µå¸¦ »ç¿ëÇÒ °æ¿ì ¿øº»À» À¯ÁöÇÏ°í »õ·Î¿î °ªÀ» ¸®ÅÏÇÑ´Ù.
+	// ê¸°ì¡´ì˜ ë‚ ì§œ ì—°ì‚°ì˜ ê²½ìš° Calendar ê°ì²´ë¥¼ ì‚¬ìš©í•´ì•¼ í–ˆë‹¤.
+	// LocalDateì—ì„œëŠ” plus(Days|Months|Weeks|Years)ë¥¼ ì œê³µí•œë‹¤.
+	// ì—°ì‚° ë©”ì„œë“œë¥¼ ì‚¬ìš©í•  ê²½ìš° ì›ë³¸ì„ ìœ ì§€í•˜ê³  ìƒˆë¡œìš´ ê°’ì„ ë¦¬í„´í•œë‹¤.
 	static void localDateAdd() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(2017, 1, 1);
@@ -159,11 +161,11 @@ public class NewDate {
 		
 		LocalDate localdate = LocalDate.of(2017, 2, 1);
 		localdate.plusDays(10);
-		System.out.println(localdate);	// 2017-02-01, ±âÁ¸ µ¥ÀÌÅÍ¸¦ À¯ÁöÇÑ´Ù.
+		System.out.println(localdate);	// 2017-02-01, ê¸°ì¡´ ë°ì´í„°ë¥¼ ìœ ì§€í•œë‹¤.
 		System.out.println(localdate.plusDays(10));	// 2017-02-11
 	}
 	
-	// ±âÅ¸µîµî
+	// ê¸°íƒ€ë“±ë“±
 	static void localDateMethod () {
 		LocalDate localdate = LocalDate.of(2017, 2, 1);
 		System.out.println(localdate.getDayOfMonth());	//1
@@ -201,11 +203,39 @@ public class NewDate {
 		System.out.println(localDateTime);	// 2017-02-01T01:02
 	}
 	
+	
 	static void zoneld() {
 		ZonedDateTime zoned = ZonedDateTime.of(2017,  1, 1, 1, 1, 0, 0, ZoneId.of("America/New_York"));
 		ZonedDateTime zoned2 = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("America/New_York"));
 		System.out.println(zoned2);
-		//´Ù¸¥ ³ª¶óÀÇ ½Ã°£°ªÀ» °¡Á®¿À´Â ¿¹Á¦
+		//ë‹¤ë¥¸ ë‚˜ë¼ì˜ ì‹œê°„ê°’ì„ ê°€ì ¸ì˜¤ëŠ” ì˜ˆì œ
 		System.out.println(Instant.now().atZone(ZoneId.of("America/New_York")));
+	}
+	
+	
+	static void datetimeformatter() {
+		LocalDateTime localDateTime = LocalDateTime.of(2017, 2, 1, 1, 2);
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm");
+		localDateTime.format(formatter);
+		
+		System.out.println(localDateTime);//2017-02-01T01:02
+		System.out.println(localDateTime.format(formatter));
+		//ê¸°ë³¸ íƒ€ì…
+		System.out.println(localDateTime.format(DateTimeFormatter.BASIC_ISO_DATE));
+		System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE));
+		System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE_TIME));
+		//System.out.println(localDateTime.format(DateTimeFormatter.ISO_INSTANT));	//ì—ëŸ¬
+		System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
+		System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+		System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_TIME));
+		/*
+		 	20170201
+			2017-02-01
+			2017-02-01T01:02:00
+			2017-02-01
+			2017-02-01T01:02:00
+			01:02:00
+		 */
 	}
 }
