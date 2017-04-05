@@ -11,12 +11,12 @@ public class _11 {
 	public static void main(String[] args) {
 		List<Food> menu = Food.getMenu();
 		
-		System.out.println(menu.stream().collect(Collectors.counting()));	//갯수
+		System.out.println(menu.stream().collect(Collectors.counting()).longValue());	//갯수
 		
 		Comparator<Food> com = Comparator.comparingInt(Food::getCalories);
 		System.out.println(menu.stream().collect(Collectors.maxBy(com)));	//.get().getName()
 		
-		System.out.println(menu.stream().collect(Collectors.summingInt(Food::getCalories)));
+		System.out.println(menu.stream().collect(Collectors.summingInt(Food::getCalories)).intValue());
 		
 		//그룹
 		Map<Food.Type, List<Food>> dt = menu.stream().collect(Collectors.groupingBy(Food::getType));

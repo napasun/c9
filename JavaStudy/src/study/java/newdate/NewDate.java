@@ -1,7 +1,7 @@
-package newdate;
+package study.java.newdate;
 
-import java.time.Instant;
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -37,14 +37,14 @@ public class NewDate {
 	/**
 	 * Instant
 	 * */
-	static void Instant() {		//절대시간
-		Instant instant = Instant.now();	//영국 그라니치 천문대 시간
+	static void Instant() {		//�젅���떆媛�
+		Instant instant = Instant.now();	//�쁺援� 洹몃씪�땲移� 泥쒕Ц�� �떆媛�
 		System.out.println(instant);
 	}
 	/**
 	 * Duration
 	 * */
-	static void duration () {	// LocalDateTime을 사용, 시간의 차이
+	static void duration () {	// LocalDateTime�쓣 �궗�슜, �떆媛꾩쓽 李⑥씠
         Duration oneHours = Duration.ofHours(1);
         System.out.println(oneHours.getSeconds());	//3600
 
@@ -63,14 +63,14 @@ public class NewDate {
 
         Duration duration = Duration.between(oldDate, newDate);
         
-        //일, 시간, 분, 초, 나노초
+        //�씪, �떆媛�, 遺�, 珥�, �굹�끂珥�
         System.out.println(duration.toDays());	//781
         System.out.println(duration.toHours());	//18753
 	}
 	/**
 	 * Period
 	 * */
-	static void period() {	//LocalDate에서 사용
+	static void period() {	//LocalDate�뿉�꽌 �궗�슜
         Period tenDays = Period.ofDays(10);
         System.out.println(tenDays.getDays()); //10
 
@@ -96,8 +96,8 @@ public class NewDate {
 	/**
 	 * ChronoUnit
 	 * */
-	// 시간 비교
-	// 얼마나 차이가 나는 지 Duration 연산과 비슷하지만 년, 원, 주까지 비교 가능하다.
+	// �떆媛� 鍮꾧탳
+	// �뼹留덈굹 李⑥씠媛� �굹�뒗 吏� Duration �뿰�궛怨� 鍮꾩듂�븯吏�留� �뀈, �썝, 二쇨퉴吏� 鍮꾧탳 媛��뒫�븯�떎.
 	static void chronoUnit() {
 		LocalDateTime oldDate = LocalDateTime.of(1987, Month.AUGUST, 4, 14, 24, 34);
         LocalDateTime newDate = LocalDateTime.of(2017, Month.FEBRUARY, 9, 10, 11, 12);
@@ -141,26 +141,26 @@ public class NewDate {
 	/**
 	 * LocalDate
 	 * */
-	static void localDatePrint() {	//좀 더 보편적 값으로 출력된다.
+	static void localDatePrint() {	//醫� �뜑 蹂댄렪�쟻 媛믪쑝濡� 異쒕젰�맂�떎.
 		Date date = new Date();
 		System.out.println(date); // Sun Jan 01 00:00:00 KST 2017
 			
 		LocalDate localdate = LocalDate.now();
 		System.out.println(localdate);	// 2017-01-01
 	}
-	// 기존 Date를 초기화 할 경우 년도에는 1900년을 기준으로 이후 년도를 더한 값 넣고 월에는 -1을 한 월을 넣어야 했다.
-	// LocalDate에서는 좀 더 명시적으로 날짜를 초기화 할 수 있다.
+	// 湲곗〈 Date瑜� 珥덇린�솕 �븷 寃쎌슦 �뀈�룄�뿉�뒗 1900�뀈�쓣 湲곗��쑝濡� �씠�썑 �뀈�룄瑜� �뜑�븳 媛� �꽔怨� �썡�뿉�뒗 -1�쓣 �븳 �썡�쓣 �꽔�뼱�빞 �뻽�떎.
+	// LocalDate�뿉�꽌�뒗 醫� �뜑 紐낆떆�쟻�쑝濡� �궇吏쒕�� 珥덇린�솕 �븷 �닔 �엳�떎.
 	static void localDateInit() {	
-		Date date = new Date(117, 1, 1);	// 월이 1부터 시작한다.
+		Date date = new Date(117, 1, 1);	// �썡�씠 1遺��꽣 �떆�옉�븳�떎.
 		System.out.println(date);
 		
 		LocalDate localdate = LocalDate.of(2017, 2, 1);
 		//LocalDate.of(2017, Month.FEBRUARY, 1);
 		System.out.println(localdate);
 	}
-	// 기존의 날짜 연산의 경우 Calendar 객체를 사용해야 했다.
-	// LocalDate에서는 plus(Days|Months|Weeks|Years)를 제공한다.
-	// 연산 메서드를 사용할 경우 원본을 유지하고 새로운 값을 리턴한다.
+	// 湲곗〈�쓽 �궇吏� �뿰�궛�쓽 寃쎌슦 Calendar 媛앹껜瑜� �궗�슜�빐�빞 �뻽�떎.
+	// LocalDate�뿉�꽌�뒗 plus(Days|Months|Weeks|Years)瑜� �젣怨듯븳�떎.
+	// �뿰�궛 硫붿꽌�뱶瑜� �궗�슜�븷 寃쎌슦 �썝蹂몄쓣 �쑀吏��븯怨� �깉濡쒖슫 媛믪쓣 由ы꽩�븳�떎.
 	static void localDateAdd() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(2017, 1, 1);
@@ -169,10 +169,10 @@ public class NewDate {
 		
 		LocalDate localdate = LocalDate.of(2017, 2, 1);
 		localdate.plusDays(10);
-		System.out.println(localdate);	// 2017-02-01, 기존 데이터를 유지한다.
+		System.out.println(localdate);	// 2017-02-01, 湲곗〈 �뜲�씠�꽣瑜� �쑀吏��븳�떎.
 		System.out.println(localdate.plusDays(10));	// 2017-02-11
 	}
-	// 기타등등
+	// 湲고��벑�벑
 	static void localDateMethod () {
 		LocalDate localdate = LocalDate.of(2017, 2, 1);
 		System.out.println(localdate.getDayOfMonth());	//1
@@ -220,7 +220,7 @@ public class NewDate {
 		ZonedDateTime zoned = ZonedDateTime.of(2017,  1, 1, 1, 1, 0, 0, ZoneId.of("America/New_York"));
 		ZonedDateTime zoned2 = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("America/New_York"));
 		System.out.println(zoned2);
-		//다른 나라의 시간값을 가져오는 예제
+		//�떎瑜� �굹�씪�쓽 �떆媛꾧컪�쓣 媛��졇�삤�뒗 �삁�젣
 		System.out.println(Instant.now().atZone(ZoneId.of("America/New_York")));
 	}
 	/**
@@ -234,11 +234,11 @@ public class NewDate {
 		
 		System.out.println(localDateTime);//2017-02-01T01:02
 		System.out.println(localDateTime.format(formatter));
-		//기본 타입
+		//湲곕낯 ���엯
 		System.out.println(localDateTime.format(DateTimeFormatter.BASIC_ISO_DATE));
 		System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE));
 		System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE_TIME));
-		//System.out.println(localDateTime.format(DateTimeFormatter.ISO_INSTANT));	//에러
+		//System.out.println(localDateTime.format(DateTimeFormatter.ISO_INSTANT));	//�뿉�윭
 		System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
 		System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_TIME));
