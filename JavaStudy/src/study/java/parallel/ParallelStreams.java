@@ -2,6 +2,7 @@ package study.java.parallel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
@@ -45,10 +46,14 @@ public class ParallelStreams {
     public static void test(long n) {
         Cal cal= new Cal();
         Cal cal2= new Cal();
+        AtomicCal cal3 = new AtomicCal();
+        
         LongStream.rangeClosed(1, n).forEach(cal::add);		//순차연산
         LongStream.rangeClosed(1, n).parallel().forEach(cal2::add); //병렬연산
+        LongStream.rangeClosed(1, n).parallel().forEach(cal3::add); //병렬연산
         
         System.out.println("cal: "+ cal.total + " cal2: "+ cal2.total);
+        System.out.println("cal3: "+ cal3.total);
     }
 
     public static class Cal {
@@ -57,5 +62,14 @@ public class ParallelStreams {
         public void add(long value) {
         	total += value;
         }
+    }
+    
+    public static class AtomicCal {
+    	//Atomic[Integer|Boolean|Long....] 여러 스레드에서 공유 카운터를 업데이트 할 때 스레드에 안전한 방식으로 일어나게 해준다.
+    	private AtomicLong total = new AtomicLong(0L);
+    	
+    	public void add(long value) {
+    		total.addAndGet(value);
+    	}
     }
 }
