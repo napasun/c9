@@ -1,0 +1,21 @@
+//Boolean
+let isCheck: boolean = true;
+
+//Number
+let num: number = 11;
+let hex: number = 0xaa
+let binary: number = 0b0101
+let octal: number = 0o456
+
+//String
+let str: string = "hello";
+let str2: string = 'world';
+
+//Array
+let arr: number[] = [1,2,3];
+let list: Array<Number> = [1,2,3];
+
+//Tuple
+lex tup: [String, number] = ["a", 1];
+tur[3] = "test"
+console.log(tup);
