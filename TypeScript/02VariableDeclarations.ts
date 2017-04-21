@@ -1,13 +1,13 @@
 let a =10;
 
-//
+// f - 함수 안에서 변수를 선언 할 수도 있습니다
 function f() {
     let message = "Hello, world!";
     return message;
 }
 
 
-//
+// f2 - 다른 함수 내에서 동일한 변수에 액세스 할 수도 있습니다.
 function f2() {
     let a2 = 10;
     return function g() {
@@ -19,6 +19,33 @@ function f2() {
 let g = f2();
 g();
 
+// f3 - 
+function f3() {
+    var a4 = 1;
+
+    a4 = 2;
+    var b4 = g2();
+    a4 = 3;
+
+    return b4;
+
+    function g2() {
+        return a4;
+    }
+}
+f3();
+
+//f4
+function f4(shouldInitialize: boolean) {
+    if (shouldInitialize) {
+        var x = 10;
+    }
+
+    return x;
+}
+
+f4(true);  // returns '10'
+f4(false); // returns 'undefined'
 
 ///let
 //블록 범위 지정
