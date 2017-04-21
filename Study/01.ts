@@ -98,6 +98,8 @@ let [, second, , fourth] = [1, 2, 3, 4];
 
 
 /// 객체 해제할당
+// let {name, name2} = object
+// 객체 속성의 이름이 같아야 한다.
 let o = {
     a: "foo",
     b: 12,
