@@ -1,4 +1,4 @@
-function s4() {
+namespace s4 {
 
 
 ///클래스

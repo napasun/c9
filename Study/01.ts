@@ -1,4 +1,4 @@
-function s1() {
+namespace s1 {
 //타입스크립트는 변수에 맞는 타입을 같이 선언해준다.
 //타입에 맞는 값이 아닐 경우 에러가 난다.
 //let 변수명 : 타입;
@@ -42,6 +42,13 @@ var a = 1; // a = 1
 let d = 2;
 let d = 3; //Uncaught SyntaxError: Identifier 'd' has already been declared
 
+
+
+/// const
+// 상수선언
+// 스코프 규칙은 let과 동일
+const constValue = 10;
+//constValue = 20;
 
 
 

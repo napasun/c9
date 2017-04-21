@@ -1,4 +1,4 @@
-function t2() {
+namespace s2 {
 //배열 함수 필터
 function positiveNumber(value) {
   return value > 0;

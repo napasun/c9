@@ -1,4 +1,4 @@
-function s3() {
+namespace s3 {
 // getter, setter
 // get, set 키워드를 사용해서 만든다.
 // 게터 함수와 세터 함수를 정의하는 형태가 함수가 아닌 속성처럼 사용된다.

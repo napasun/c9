@@ -39,6 +39,8 @@ class Snake extends Animal {
     }
 }
 
+
+
 /// Public, private, and protected modifiers
 // 기본은 public
 // 읽기 전용 readonly

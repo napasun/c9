@@ -7,6 +7,9 @@ let myObj = {size: 10, label: "Size 10 Object"};
 //let myObj = {size: 10, label: 3};    //타입 불일치
 printLabel(myObj);
 
+
+
+
 ///인터페이스를 사용해서 구현한 예
 // LabelledValue 인터페이스 상에서 string타입을 갖는 label값이 있다고 전달한다.
 interface LabelledValue {
@@ -19,6 +22,16 @@ function printLabel2(labelledObj: LabelledValue) {
 
 let myObj2 = {size: 10, label: "Size 10 Object"};
 printLabel2(myObj2);
+
+
+
+
+
+
+
+
+
+
 
 
 ///Optional Properties 선택적 속성
@@ -44,6 +57,11 @@ function createSquare(config: SquareConfig): {color: string; area: number} {
 
 let mySquare = createSquare({color: "black"});
 
+
+
+
+
+
 /// 읽기 전용 속성 Readonly properties 
 interface Point {
     readonly x: number;
@@ -53,6 +71,11 @@ interface Point {
 let p1: Point = { x: 10, y: 20 };
 //p1.x = 5; // error!
 
+
+
+
+
+
 /// 모든 변경 메소드가 제거된 ReadonlyArray<T>
 let a: number[] = [1, 2, 3, 4];
 let ro: ReadonlyArray<number> = a;
@@ -60,6 +83,9 @@ ro[0] = 12; // error!
 ro.push(5); // error!
 ro.length = 100; // error!
 a = ro; // error!
+
+
+
 
 
 /// 추가 속성 체크 Excess Property Checks
@@ -78,6 +104,10 @@ function createSquare2(config: SquareConfig): { color: string; area: number } {
 let squareOptions = { colour: "red", width: 100 };
 createSquare2(squareOptions);
 
+
+
+
+
 /// 함수 유형 인터페이스 Function Types
 // 속성을 가진 객체 외에 함수 유형을 선언할 수 있다.
 // 주어진 매개 변수 목록과 반환 유형 만 있는 함수 선언이다.
@@ -92,6 +122,9 @@ mySearch = function(sour: string, subString: string) {
     return result > -1;
 }
 
+
+
+
 /// 인덱싱 가능 유형 Indexable Types
 interface StringArray {
     [index: number]: string;
@@ -101,6 +134,12 @@ let myArray: StringArray;
 myArray = ["Bob", "Fred"];
 
 let myStr: string = myArray[0];
+
+
+
+
+
+
 
 /// 클래스 유형
 // 인터페이스를 사용하는 이유는 클래스가 특정 조건을 준수하도록 명시하기 위해서 이다.
@@ -117,6 +156,11 @@ class Clock implements ClockInterface {
     }
     constructor(h: number, m: number) { }
 }
+
+
+
+
+
 
 /// 인터페이스 확장 Extending Interfaces
 // extends 을 사용하여 인터페이스를 확장한다.
