@@ -19,7 +19,7 @@ function f2() {
 let g = f2();
 g();
 
-// f3 - 
+// f3 - 내부 함수에서 리턴되는 값은 당시에 캡쳐된 값을 가진다.
 function f3() {
     var a4 = 1;
 
