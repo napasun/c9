@@ -1,28 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-app',
   template: `
-  <button class="button" [ngClass]="{active: isActive}"
-  (click)="isActive=!isActive;">{{isActive?'활성화':'비 활성화'}}</button><br>
+  <select [(ngModel)]="city">
+        <option *ngFor="let obj of cities" [value]="obj.eng">{{obj.han}}</option>
+        </select>
+  <select (change)="city=$event.target.value">
+          <option *ngFor="let obj of cities" [value]="obj.eng" [selected]="city==obj.eng?true:null">
+          {{obj.han}}
+          </option>
+        </select><br>
 
-  <button [ngClass]="myclass">버튼1</button>
-  <button [ngClass]="'active'">버튼2</button>
-  <button bind-ngClass="myclass">버튼3</button><br>
-
-  <button [attr.class]="myclass">버튼4</button>
-  <button [class.active]="true">버튼5</button>
-  `,
-  styles: [`
-  button {
-      width: 100px; padding: 10px;
-      margin-bottom: 10px;
-      text-align:center;   
-      border: 1px dotted #666;           
-  }
-  button.active {
-      background-color: #CFD7EB; border: 1px solid #666;
-  }`]
+  <input [(ngModel)]="city">
+  <input [value]="city" (input)="city=$event.target.value" ><br>
+  
+  <span *ngFor="let obj of cities">
+          <input type="radio" [checked]="(obj.eng==city?true:null)" (click)="city=$event.target.value" [value]="obj.eng" name="city">{{obj.han}}
+        </span>`,
+  styles: [`section{margin-bottom:20px;}`]
 })
-export class AppComponent {  public isActive: boolean = false;
-  myclass: string="active";   }
+export class AppComponent {
+
+  city: string = "seoul";
+  cities: Object[] = [
+    { han: "서울", eng: "seoul" },
+    { han: "대전", eng: "daejeon" },
+    { han: "대구", eng: "daegu" },
+    { han: "부산", eng: "pusan" }
+  ];
+
+
+}

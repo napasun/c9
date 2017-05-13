@@ -9,16 +9,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.isActive = false;
-        this.myclass = "active";
+        this.city = "seoul";
+        this.cities = [
+            { han: "서울", eng: "seoul" },
+            { han: "대전", eng: "daejeon" },
+            { han: "대구", eng: "daegu" },
+            { han: "부산", eng: "pusan" }
+        ];
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <button class=\"button\" [ngClass]=\"{active: isActive}\"\n  (click)=\"isActive=!isActive;\">{{isActive?'\uD65C\uC131\uD654':'\uBE44 \uD65C\uC131\uD654'}}</button><br>\n\n  <button [ngClass]=\"myclass\">\uBC84\uD2BC1</button>\n  <button [ngClass]=\"'active'\">\uBC84\uD2BC2</button>\n  <button bind-ngClass=\"myclass\">\uBC84\uD2BC3</button><br>\n\n  <button [attr.class]=\"myclass\">\uBC84\uD2BC4</button>\n  <button [class.active]=\"true\">\uBC84\uD2BC5</button>\n  ",
-        styles: ["\n  button {\n      width: 100px; padding: 10px;\n      margin-bottom: 10px;\n      text-align:center;   \n      border: 1px dotted #666;           \n  }\n  button.active {\n      background-color: #CFD7EB; border: 1px solid #666;\n  }"]
+        template: "\n  <select [(ngModel)]=\"city\">\n        <option *ngFor=\"let obj of cities\" [value]=\"obj.eng\">{{obj.han}}</option>\n        </select>\n  <select (change)=\"city=$event.target.value\">\n          <option *ngFor=\"let obj of cities\" [value]=\"obj.eng\" [selected]=\"city==obj.eng?true:null\">\n          {{obj.han}}\n          </option>\n        </select><br>\n\n  <input [(ngModel)]=\"city\">\n  <input [value]=\"city\" (input)=\"city=$event.target.value\" ><br>\n  \n  <span *ngFor=\"let obj of cities\">\n          <input type=\"radio\" [checked]=\"(obj.eng==city?true:null)\" (click)=\"city=$event.target.value\" [value]=\"obj.eng\" name=\"city\">{{obj.han}}\n        </span>",
+        styles: ["section{margin-bottom:20px;}"]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
