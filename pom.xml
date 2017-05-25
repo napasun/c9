@@ -7,6 +7,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>simple_java_config</module>
+		<module>simple2</module>
 	</modules>
 
 	<dependencies>
