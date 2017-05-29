@@ -8,6 +8,8 @@
 	<modules>
 		<module>simple_java_config</module>
 		<module>simple2</module>
+		<module>inmemory</module>
+		<module>javaconfig-message</module>
 	</modules>
 
 	
