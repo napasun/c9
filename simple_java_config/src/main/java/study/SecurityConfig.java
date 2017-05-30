@@ -24,17 +24,17 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig {
 
 	@Bean
-	public UserDetailsService userDetailsService() {
+	public UserDetailsService userDetailsService() throws Exception {
 		System.out.println("inmemory");
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 		manager.createUser(User.withUsername("user").password("password").roles("USER").build());
 		return manager;
 	}
 	
-	@Override
+	/*@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
@@ -47,5 +47,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				//.permitAll()	// 모든 사용자가 이용 가능
 			
 		super.configure(http);
-	}
+	}*/
 }
