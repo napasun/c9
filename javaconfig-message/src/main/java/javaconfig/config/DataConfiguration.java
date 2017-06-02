@@ -19,7 +19,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javaconfig.data.Message;
 
 @Configuration
-@EnableJpaRepositories("org.springframework.security.samples.data")
+@EnableJpaRepositories("javaconfig.data")
 public class DataConfiguration {
 
 	@Bean
