@@ -864,7 +864,3 @@ extension Int {
 print(30.multiply(by: 20))
 
 
-//깃 테스트용
-print("test")
-
-
