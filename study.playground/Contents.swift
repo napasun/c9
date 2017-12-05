@@ -588,7 +588,7 @@ print(yagom14.address?.building?.room?.number)
  guard Bool 타입 값 else {
     예외사항 실행문
     제어문 전환 명령어
- }
+ }\
  */
 //맵
 let numbers_15: [Int] = [1,2,3,4]
@@ -625,8 +625,243 @@ print("\(sum)")
  convertedValue = 5.5 // 에러
  */
 
+/**
+ 다운 캐스팅
+ 타입캐스트 연산자 as? as! 두가지가 있다. 타입캐스트 연산자를 사용하여 자식클래스 타입으로 다운캐스팅할 수 있다.
+ 다운캐스팅을 시도해보는 조건부 연산자 as? 연산자는 다운캐스팅이 실패했을 경우 nil을 반환하고
+ 다운캐스팅을 강제하는 as! 연산자는 다운캐스팅이 실패했을 경우 런타임 오류가 발생한다.
+ */
+
+/**
+ 프로토콜 - 특정 역할을 하기 위한 메서드, 프로퍼티, 기타 요구사항 등의 청사진을 정의한다.
+ 구조체, 클래스, 열거형은 프로토콜을 채택해서 특정 기능을 실행하기 위한 프로토콜의 요구사항을 실제로 구현할 수 있다.
+ 프로토콜은 정의를 하고 제시를 할 뿐 스스로 기능을 구현하지는 않는 다.
+ 
+ protocal 프로토콜 이름 {
+    프로토콜 정의
+ }
+ 
+ 타입 이름 뒤에 콜론을 붙여준 후 채택할 프로토콜 이름을 쉼표로 구분하여 명시한다.
+ class  className: AProtocol, BProtocol {
+다른 클래스를 상속 받는 다면 상속받을 클래스 이름 다음에 채택할 프로토콜을 나열한다.
+ }
+ */
+
+protocol SomeProtocol {//어떤 프로포티를 구현해야 하는 지 요구할 수 있다. 프로퍼티 종류까지는 신경 쓰지 않는 다.
+    var settableProperty: String {get set}  //프로퍼티가 읽기 전용인지 읽고 쓰기가 모두 가능한 지는 프로토콜이 정해야 한다.
+    var notNeedToBeSettableProperty: String {get}
+}
+
+protocol AntherProtocol { //static 상속 불가능한
+    static var someTypeProperty: Int {get set}
+    static var antotherTypeProperty: Int {get}
+}
 
 
+protocol Sendable {
+    var from: String {get}
+    var to: String{get}
+}
+
+class Message: Sendable {
+    var sender: String
+    var from: String {
+        return self.sender
+    }
+    var to: String
+    
+    init(sender: String, receiver: String) {
+        self.sender = sender
+        self.to = receiver
+    }
+}
+
+class Mail: Sendable {
+    var from: String
+    var to: String
+    
+    init(sender: String, receiver: String) {
+        self.from = sender
+        self.to = receiver
+    }
+}
+
+//프로토콜은 특정 인스턴스 메서드나 타입 메서드를 요구할 수도 있다. 구현부인 중괄호 부분을 제외하고 메서드의 이름, 매개변수, 반환 타입들을 작성하며 가변 매개변수도 허용한다.
+protocol Receiveable {
+    func received(data: Any, from: Sendable2)
+}
+
+protocol Sendable2 {
+    var from: Sendable2 {get}
+    var to: Receiveable? {get}
+    
+    func send(data: Any)
+    
+    static func isSendableInstance(_ instance: Any) -> Bool
+}
+
+class Message2: Sendable2, Receiveable {
+    var from: Sendable2 {
+        return self
+    }
+    
+    var to: Receiveable?
+    
+    func send(data: Any) {
+        guard let receiver: Receiveable = self.to else {
+            print("Message has no receiver")
+            return
+        }
+        receiver.received(data: data, from: self.from)
+    }
+    
+    func received(data: Any, from: Sendable2) {
+        print("Message received \(data) from \(from)")
+    }
+    
+    class func isSendableInstance(_ instance: Any) -> Bool {
+        if let sendableInstance: Sendable2 = instance as? Sendable2 {
+            return sendableInstance.to != nil
+        }
+        return false
+    }
+}
+
+protocol Readable {
+    func read()
+}
+
+protocol Writeable {
+    func write()
+}
+
+protocol ReadSpeakable: Readable {
+    func speak()
+}
+
+protocol ReadWriteSpeakable: Readable, Writeable {
+    func speak()
+}
+
+class SomeClass_20: ReadWriteSpeakable {
+    func read() {}
+    func write() {
+        
+    }
+    func speak() {
+        
+    }
+}
+
+protocol ClassOnlyProtocol: class, Readable, Writeable {} //프로토콜의 상속 리스트에 class 키워드를 추가해 클래스 타입에만 채택될 수 있도록 제한할 수 있다.
+
+//프로토콜을 조합하여 요구할 수 있다. 프로토콜을 조합하여 요구할 때는 Protocal & Protocol 과 같이 표현한다.
+
+protocol Named {
+    var name: String {get}
+}
+
+protocol Aged {
+    var age: Int {get}
+}
+
+struct Person_20: Named, Aged {
+    var name: String
+    var age: Int
+}
+
+class Car: Named {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Truk: Car, Aged {
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.age = age
+        super.init(name: name)
+    }
+}
+
+func celebrateBirthday(to celebrator: Named & Aged) {
+    print("Happy birthday \(celebrator.name)!! Now you are \(celebrator.age)")
+}
+
+let yagom_20: Person_20 = Person_20(name: "asdf", age:10)
+celebrateBirthday(to: yagom_20)
+
+let myCar: Car = Car(name: "adfa")
+//celebrateBirthday(to: myCar)    // 에러 Aged를 충족시키지 못함
+
+//var someVariable: Car & Truck & Aged    //클래스 & 프로토콜 조합에서 클래스 타입은 한 타입만 조합할 수 있다. 에러
+var someVariable: Car & Aged
+someVariable = Truk(name: "trrr", age: 13)
+
+celebrateBirthday(to: someVariable)
+
+//is 연산자를 통해 해당 인스턴스가 특정 프로토콜을 준수하는 지 확인할 수 있다.
+print(yagom_20 is Named)
+print(yagom_20 is Aged)
+
+print(myCar is Named)
+print(myCar is Aged)
+
+
+//프로토콜의 요구사항 중 일부를 선택적 요구사항으로 지정할 수 있다.
+//선택적 요구사항을 정의하고 싶은 프로토콜은 @objc 속성이 부여된 프로토콜이어야 한다.
+//@objc 속성은 해당 프로토콜을 Objective-C 코드에서 사용할 수 있도록 만드는 역할을 한다. Objective-C 코드와 공유하지 않더라도 @objc 속성이 부여되어야 선택적 요구사항을 정의할 수 있다.
+//@objc 속성을 사용하려면 Foundation 프레임워크 모듈을 임포트해야 한다.
+//선택적 요구사항은 optional 식별자를 요구사항의 정의 앞에 붙여주면 된다.
+
+import Foundation
+
+@objc protocol Moveable {
+    func walk()
+    @objc optional func fly()
+}
+
+class Tiger: NSObject, Moveable {   //@objc 속성의 프로토콜을 사용하기 위해 Objective-C의 클래스인 NSObject를 상속받는다.
+    func walk() {
+        
+    }
+}
+
+
+
+/**
+ 익스텐션
+ 익스텐션은 구조체, 클래스, 열거형, 프로토콜 타입에 새로운 기능을 추가할 수 있다. 기존에 존재하는 기능을 재정의할 수는 없다.
+ 외부에서 가져온 타입에 내가 원하는 기능을 추가하고자 할 때 익스텐션을 사용한다.
+ 
+ extension 확장할 타입 이름
+    // 타입에 추가된 새로운 기능 구현
+ 
+ 익스텐션은 기존에 존재하는 타입이 추가로 다른 프로토콜을 채택할 수 있도록 확장할 수도 있다.
+ extension 확장할 타입 이름: 프로토콜1, 프로토콜2 {
+    //프로토콜 요구사항 구현
+ }
+ */
+
+extension Int {
+    var isEven: Bool {  //연산 프로퍼티
+        return self % 2 == 0
+    }
+}
+
+print(1.isEven)
+print(2.isEven)
+
+extension Int {
+    func multiply(by n: Int) -> Int {   //메서드
+        return self * n
+    }
+}
+
+print(30.multiply(by: 20))
 
 
 
