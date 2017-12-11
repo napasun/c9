@@ -12,19 +12,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet weak var myLabel: UILabel!
+    //개행키가 눌렸을 때
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false //개행은 입력하지 않는 다.
+    }
     
     @IBAction func tabView(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true
-        
-        )
+        view.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        myTextField.delegate = self
+        myTextField.delegate = self //델리게이트 설정
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
