@@ -17,13 +17,13 @@ class ViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         let defaults = UserDefaults.standard
         
-        defaults.set(switch1.isOn, forKey: "switchOn")
+        defaults.set(switch1.isOn, forKey: "switchOn")  //저장
     }
     
     @IBAction func read(_ sender: Any) {
         let defaults = UserDefaults.standard
         
-        switch2.isOn = defaults.bool(forKey: "switchOn")
+        switch2.isOn = defaults.bool(forKey: "switchOn")    //로드
     }
     
     override func viewDidLoad() {
