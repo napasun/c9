@@ -23,6 +23,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hello(_:)))
+        
+        let myView = UIView(frame: CGRect(x: 100, y: 100, width: 80, height: 80))
+        myView.backgroundColor = UIColor.green
+        
+        myView.tag = 1
+        myView.addGestureRecognizer(tapGesture)
+        view.addSubview(myView)
+    }
+    
+    @objc func hello (_ sender:UITapGestureRecognizer) {
+        let tagNo = sender.view?.tag
+        print("gg", tagNo!)
     }
 
     override func didReceiveMemoryWarning() {
