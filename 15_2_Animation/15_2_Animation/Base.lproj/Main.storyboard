@@ -30,9 +30,16 @@
                             <outletCollection property="gestureRecognizers" destination="ltk-dj-4gA" appends="YES" id="Xf7-c0-8RR"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="seal" destination="TEd-Am-2oQ" id="fHj-uz-4Nz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ltk-dj-4gA"/>
+                <tapGestureRecognizer id="ltk-dj-4gA">
+                    <connections>
+                        <action selector="tapView:" destination="BYZ-38-t0r" id="WKN-qV-aWB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
