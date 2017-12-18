@@ -35,11 +35,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let image = UIImage(named: "checkmark")?.withRenderingMode(.alwaysOriginal)
                     tbItem.selectedImage = image
                     
-                    //탭 바 아이템 타이틀 색상 설정
-                tbItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for: .disabled)
-                
-                tbItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.red], for: .selected)
+//                    //탭 바 아이템 타이틀 색상 설정
+//                    tbItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for: .disabled)
+//
+//                    tbItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.red], for: .selected)
+//
+//                    //폰트 크기 설정
+//                    tbItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)], for: .normal)
                 }
+                //외형 프록시 객체 사용
+                let tbItemProxy = UITabBarItem.appearance()
+                
+                tbItemProxy.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for: .disabled)
+                tbItemProxy.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.red], for: .selected)
+                //폰트 크기 설정
+                tbItemProxy.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)], for: .normal)
             }
 //            //활성화된 탭 바 아이템 이미지 색상
 //            tbC.tabBar.tintColor = UIColor.white
