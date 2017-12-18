@@ -13,6 +13,7 @@
 		ED7EB7981FE3BB4D00C7C266 /* InputForm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB7961FE3BB4D00C7C266 /* InputForm.xcdatamodeld */; };
 		ED7EB79A1FE3BB4D00C7C266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB7991FE3BB4D00C7C266 /* Assets.xcassets */; };
 		ED7EB79D1FE3BB4D00C7C266 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB79B1FE3BB4D00C7C266 /* LaunchScreen.storyboard */; };
+		EDFA956D1FE77DF600AB589B /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA956C1FE77DF600AB589B /* ReadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		ED7EB7991FE3BB4D00C7C266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED7EB79C1FE3BB4D00C7C266 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED7EB79E1FE3BB4D00C7C266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDFA956C1FE77DF600AB589B /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				ED7EB78F1FE3BB4D00C7C266 /* AppDelegate.swift */,
 				ED7EB7911FE3BB4D00C7C266 /* ViewController.swift */,
 				ED7EB7931FE3BB4D00C7C266 /* Main.storyboard */,
+				EDFA956C1FE77DF600AB589B /* ReadViewController.swift */,
 				ED7EB7991FE3BB4D00C7C266 /* Assets.xcassets */,
 				ED7EB79B1FE3BB4D00C7C266 /* LaunchScreen.storyboard */,
 				ED7EB79E1FE3BB4D00C7C266 /* Info.plist */,
@@ -141,6 +144,7 @@
 			files = (
 				ED7EB7981FE3BB4D00C7C266 /* InputForm.xcdatamodeld in Sources */,
 				ED7EB7921FE3BB4D00C7C266 /* ViewController.swift in Sources */,
+				EDFA956D1FE77DF600AB589B /* ReadViewController.swift in Sources */,
 				ED7EB7901FE3BB4D00C7C266 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
