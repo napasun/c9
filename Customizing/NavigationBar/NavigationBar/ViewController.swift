@@ -38,19 +38,49 @@ class ViewController: UIViewController {
         
         self.navigationItem.titleView = tf
         // 네비게이션 버튼 아이템
-        let v = UIView()
-        v.frame = CGRect(x: 0, y: 0, width: 150, height: 37)
-        v.backgroundColor = UIColor.brown
+//        let v = UIView()
+//        v.frame = CGRect(x: 0, y: 0, width: 150, height: 37)
+//        v.backgroundColor = UIColor.brown
+//
+//        let leftItem = UIBarButtonItem(customView: v)
+//        self.navigationItem.leftBarButtonItem = leftItem
+//
+//        let rv = UIView()
+//        rv.frame = CGRect(x: 0, y: 0, width: 100, height: 37)
+//        rv.backgroundColor = UIColor.red
+//
+//        let rightItem = UIBarButtonItem(customView: rv)
+//        self.navigationItem.rightBarButtonItem = rightItem
+        //왼쪽 화살표
+        let back = UIImage(named: "arrow-back")
+        let leftItem = UIBarButtonItem(image: back, style: .plain, target: self, action: nil)
         
-        let leftItem = UIBarButtonItem(customView: v)
         self.navigationItem.leftBarButtonItem = leftItem
-        
+        //오른쪽 버튼 추가
         let rv = UIView()
-        rv.frame = CGRect(x: 0, y: 0, width: 100, height: 37)
-        rv.backgroundColor = UIColor.red
+        rv.frame = CGRect(x: 0, y: 0, width: 70, height: 37)
         
-        let rightItem = UIBarButtonItem(customView: rv)
-        self.navigationItem.rightBarButtonItem = rightItem
+        let rItem = UIBarButtonItem(customView: rv)
+        self.navigationItem.rightBarButtonItem = rItem
+        //레이블 추가
+        let cnt = UILabel()
+        cnt.frame = CGRect(x: 10, y: 8, width: 20, height: 20)
+        cnt.font = UIFont.boldSystemFont(ofSize: 10)
+        cnt.textColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.0)
+        cnt.text = "12"
+        cnt.textAlignment = .center
+        
+        cnt.layer.cornerRadius = 3
+        cnt.layer.borderWidth = 2
+        cnt.layer.borderColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.0).cgColor
+        
+        rv.addSubview(cnt)
+        //오른쪽 more 버튼
+        let more = UIButton(type: .system)
+        more.frame = CGRect(x: 50, y: 10, width: 16, height: 16)
+        more.setImage(UIImage(named: "more"), for: .normal)
+        
+        rv.addSubview(more)
     }
     
     func initTitleImage() { //이미지
