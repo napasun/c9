@@ -35,6 +35,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //UIViewController의 상위 클래스 UIResponder 에 화면 터치와 관련된 메소드가 정의 되어 있다.
+        //화면에서 터치가 끝났을 때 호출되는 메소드
+        let tabBar = self.tabBarController?.tabBar
+        //tabBar?.isHidden = (tabBar?.isHidden == true) ? false : true    //탭바 보이고 안보이게
+        
+        UIView.animate(withDuration: TimeInterval(0.15)) {
+            tabBar?.alpha = (tabBar?.alpha == 0 ? 1 : 0)
+        }
+    }
 
 }
 
