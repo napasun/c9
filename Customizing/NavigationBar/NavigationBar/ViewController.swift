@@ -22,8 +22,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func initTitleImage() {
+    func initTitleImage() { //이미지
+        let image = UIImage(named: "swift_logo")
+        let imageV = UIImageView(image: image)
         
+        self.navigationItem.titleView = imageV
     }
     
     func initTitleNew() {   //커스텀 네이게이션 컨테이너에 두개의 레이블을 넣어 구현
