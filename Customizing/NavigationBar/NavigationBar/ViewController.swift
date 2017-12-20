@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //self.initTitleNew()
-        self.initTitleImage()
+        //self.initTitleImage()
+        self.initTitleInput()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +23,36 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func initTitleInput() {
+        let tf = UITextField()
+        tf.frame = CGRect(x: 0, y: 0, width: 300, height: 35)
+        tf.backgroundColor = UIColor.white
+        tf.font = UIFont.systemFont(ofSize: 13)
+        tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
+        tf.spellCheckingType = .no
+        tf.keyboardType = .URL
+        tf.keyboardAppearance = .dark
+        tf.layer.borderWidth = 0.3
+        tf.layer.borderColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.0).cgColor
+        
+        self.navigationItem.titleView = tf
+        // 네비게이션 버튼 아이템
+        let v = UIView()
+        v.frame = CGRect(x: 0, y: 0, width: 150, height: 37)
+        v.backgroundColor = UIColor.brown
+        
+        let leftItem = UIBarButtonItem(customView: v)
+        self.navigationItem.leftBarButtonItem = leftItem
+        
+        let rv = UIView()
+        rv.frame = CGRect(x: 0, y: 0, width: 100, height: 37)
+        rv.backgroundColor = UIColor.red
+        
+        let rightItem = UIBarButtonItem(customView: rv)
+        self.navigationItem.rightBarButtonItem = rightItem
+    }
+    
     func initTitleImage() { //이미지
         let image = UIImage(named: "swift_logo")
         let imageV = UIImageView(image: image)
