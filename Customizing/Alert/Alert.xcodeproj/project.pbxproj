@@ -13,6 +13,7 @@
 		EDD5C9EF1FEA47FE008E2DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD5C9EE1FEA47FE008E2DA8 /* Assets.xcassets */; };
 		EDD5C9F21FEA47FE008E2DA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD5C9F01FEA47FE008E2DA8 /* LaunchScreen.storyboard */; };
 		EDD5C9FA1FEA555D008E2DA8 /* MapAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD5C9F91FEA555D008E2DA8 /* MapAlertViewController.swift */; };
+		EDD5C9FC1FEA5DB0008E2DA8 /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD5C9FB1FEA5DB0008E2DA8 /* MapKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EDD5C9F11FEA47FE008E2DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDD5C9F31FEA47FE008E2DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDD5C9F91FEA555D008E2DA8 /* MapAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAlertViewController.swift; sourceTree = "<group>"; };
+		EDD5C9FB1FEA5DB0008E2DA8 /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				EDD5C9F01FEA47FE008E2DA8 /* LaunchScreen.storyboard */,
 				EDD5C9F31FEA47FE008E2DA8 /* Info.plist */,
 				EDD5C9F91FEA555D008E2DA8 /* MapAlertViewController.swift */,
+				EDD5C9FB1FEA5DB0008E2DA8 /* MapKitViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			files = (
 				EDD5C9EA1FEA47FE008E2DA8 /* ViewController.swift in Sources */,
 				EDD5C9E81FEA47FE008E2DA8 /* AppDelegate.swift in Sources */,
+				EDD5C9FC1FEA5DB0008E2DA8 /* MapKitViewController.swift in Sources */,
 				EDD5C9FA1FEA555D008E2DA8 /* MapAlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MapKit
+
 
 class MapAlertViewController: UIViewController {
 
@@ -35,25 +35,9 @@ class MapAlertViewController: UIViewController {
         alert.addAction(okAction)
         
         //맵킷 관련
-        let contentVC = UIViewController()
+        let contentVC = MapKitViewController()
         
-        let mapkitView = MKMapView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        contentVC.view = mapkitView
-        contentVC.preferredContentSize.height = 200
         
-        //맵킷 뷰 속성 설정 축척, 핀
-        let pos = CLLocationCoordinate2D(latitude: 37.514322, longitude: 126.894623)    //위치 정보 위/경도
-        
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)    //지도에서 보여줄 넓이 축척 낮을 수록 좁은 넚위를 확대시켜 보여준다.
-        
-        let region = MKCoordinateRegion(center: pos, span: span)    //지도 영역 정의
-        //지도 뷰에 표시
-        mapkitView.region = region
-        mapkitView.regionThatFits(region)
-        //위치를 핀으로 표시
-        let point = MKPointAnnotation()
-        point.coordinate = pos
-        mapkitView.addAnnotation(point)
         
         alert.setValue(contentVC, forKeyPath: "contentViewController")
         
