@@ -12,6 +12,10 @@ class ControlViewController: UIViewController {
 
     let slider = UISlider()
     
+    var sliderValue: Float {
+        return self.slider.value
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

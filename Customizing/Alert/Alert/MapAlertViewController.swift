@@ -51,7 +51,9 @@ class MapAlertViewController: UIViewController {
         
         alert.setValue(contentVC, forKey: "contentViewController")
         
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            (_) in print(">>> sliderValue = \(contentVC.sliderValue)")
+        }
         alert.addAction(okAction)
         
         self.present(alert, animated: false, completion: nil)
