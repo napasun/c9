@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         self.view.addSubview(defaultAlertBtn)
     }
 
+    
+    
     @objc func defaultAlert(_ sender: Any) {
         //알림창 정의
         let alert = UIAlertController(title: "알림창", message: "기본 메시지가 들어가는 곳"

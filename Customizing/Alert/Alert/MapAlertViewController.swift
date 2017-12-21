@@ -23,6 +23,28 @@ class MapAlertViewController: UIViewController {
         alertBtn.addTarget(self, action: #selector(mapAlert(_:)), for: .touchUpInside)
         
         self.view.addSubview(alertBtn)
+        
+        
+        
+        let imageBtn = UIButton(type: .system)
+        imageBtn.frame = CGRect(x: 0, y: 200, width: 100, height: 30)
+        imageBtn.center.x = self.view.frame.width / 2
+        imageBtn.setTitle("Image Alert", for: .normal)
+        imageBtn.addTarget(self, action: #selector(imageAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview(imageBtn)
+    }
+    
+    @objc func imageAlert(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "이번 글의 평점은 다음과 같습니다.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        let contentVC = ImageViewController()
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        self.present(alert, animated: false)
     }
     
     @objc func mapAlert(_ sender: UIButton) {
