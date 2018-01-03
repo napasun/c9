@@ -17,9 +17,10 @@ class ViewController: UIViewController {
         var db: OpaquePointer? = nil
         var stmt: OpaquePointer? = nil
         
-        let fileMgr = FileManager()
-        let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let dbPath = docPathURL.appendingPathComponent("db.sqlite").path
+//        let fileMgr = FileManager()
+//        let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        let dbPath = docPathURL.appendingPathComponent("db.sqlite").path
+        let dbPath = "/Users/mp/Desktop/study/book2/DB/db2/db.sqlite"
         
         let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"
         
