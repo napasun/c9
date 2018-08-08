@@ -22,6 +22,7 @@
 - [Chapter 10. RESTful Web Services Using Spring Boot](/_draft/ch10/ch10.md)
 - [Chapter 11. Networking](/_draft/ch11/ch11.md)
     - [Introduction](/_draft/ch11/11_1.md)
+    - [Making an HTTP GET request](/_draft/ch11/11_2.md)
 - [Chapter 12. Memory Management and Debugging](/_draft/ch12/ch12.md)
     - [Introduction](/_draft/ch12/12_1.md)
     - [Understanding the G1 garbage collector](/_draft/ch12/12_2.md)

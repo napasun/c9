@@ -1,0 +1,10 @@
+- [Chapter 1 The Java 9 Landscape](/_draft/ch1/ch1.md)
+    - [Java 9 at 20000 feet](/_draft/ch1/1_1.md)
+    - [Breaking the monolith](/_draft/ch1/1_2.md)
+    - [Playing around with the Java Shell](/_draft/ch1/1_3.md)
+    - [Taking control of external processes](/_draft/ch1/1_4.md)
+    - [Boosting performance with G1](/_draft/ch1/1_5.md)
+- []()
+- [Chapter 3: Java 9 Language Enhancements]()
+    - [Working with variable handlers [JEP 193]]()
+    - [Eliding depreciation warnings on import statements [JEP 211]]
