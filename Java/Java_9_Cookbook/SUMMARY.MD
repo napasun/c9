@@ -2,6 +2,7 @@
     - [Introduction.md](/_draft/ch2/2_1.md)
     - [Implementing object-oriented design using classes](/_draft/ch2/2_2.md.md)
     - [Using inner classes](/_draft/ch2/2_3.md)
+    - [Using inheritance and composition to make the design extensible](/_draft/ch2/2_4.md)
 - [Chapter 3. Modular Programming](/_draft/ch3/ch3.md)
     - [Introduction](/_draft/ch3/3_1.md)
     - [Creating a simple modular application](/_draft/ch3/3_3.md)
