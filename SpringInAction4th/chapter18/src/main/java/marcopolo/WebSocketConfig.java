@@ -11,13 +11,13 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(marcoHandler(), "/marco").withSockJS();
-	}
-  
-	@Bean
-	public MarcoHandler marcoHandler() {
-		return new MarcoHandler();
-	}
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(marcoHandler(), "/marco").withSockJS();
+    }
+
+    @Bean
+    public MarcoHandler marcoHandler() {
+        return new MarcoHandler();
+    }
 
 }

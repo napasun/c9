@@ -9,25 +9,24 @@ import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
 public class MarcoHandler extends AbstractWebSocketHandler {
 
-	private static final Logger logger = LoggerFactory.getLogger(MarcoHandler.class);
-	
-	@Override
-	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		logger.info("Received message: " + message.getPayload());
-		Thread.sleep(2000);
-		session.sendMessage(new TextMessage("Polo!"));
-	}
+    private static final Logger logger = LoggerFactory.getLogger(MarcoHandler.class);
 
-	@Override
-	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		System.out.println("연결 종료");
-	}
+    @Override
+    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+        logger.info("Received message: " + message.getPayload());
+        Thread.sleep(2000);
+        session.sendMessage(new TextMessage("Polo!"));
+    }
 
-	@Override
-	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		System.out.println("연결 시작");
-	}
-	
-	
-	
+    @Override
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+        System.out.println("연결 종료");
+    }
+
+    @Override
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        System.out.println("연결 시작");
+    }
+
+
 }

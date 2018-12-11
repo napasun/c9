@@ -14,6 +14,7 @@ import com.estgames.cabal1.shop.product.search.ProductSearch;
 import com.mysema.query.SearchResults;
 import com.mysema.query.jpa.JPASubQuery;
 import com.mysema.query.jpa.JPQLQuery;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,11 +27,11 @@ import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
 
 /**
- *
  * @author asdf
  */
 public class ProductRepositoryImpl extends QueryDslRepositorySupport implements ProductCustomRepository {
@@ -87,15 +88,15 @@ public class ProductRepositoryImpl extends QueryDslRepositorySupport implements 
         QMenuProduct menuProduct = QMenuProduct.menuProduct;
         QSubMenu subMenu = QSubMenu.subMenu;
         QMainMenu mainMenu = QMainMenu.mainMenu;
-        
+
         JPQLQuery query = from(product);
         JPASubQuery subquery = new JPASubQuery();
-        
+
         subquery.from(menuProduct)
                 .leftJoin(menuProduct.subMenu, subMenu)
                 .leftJoin(menuProduct.product, product)
                 .leftJoin(subMenu.mainMenu, mainMenu);
-        
+
         List<Predicate> sq_criteria = new ArrayList<Predicate>();
         if (mainIdx != 0) {
             subquery.where(mainMenu.menuMainIdx.eq(mainIdx));
@@ -103,7 +104,7 @@ public class ProductRepositoryImpl extends QueryDslRepositorySupport implements 
         if (subIdx != 0) {
             subquery.where(subMenu.subMenuIdx.eq(subIdx));
         }
-        
+
         if (productSearch.getSearchText() != null && !productSearch.getSearchText().equals("")) {
             query.where(product.productName.contains(productSearch.getSearchText()));
         }
@@ -112,7 +113,7 @@ public class ProductRepositoryImpl extends QueryDslRepositorySupport implements 
                 .and(product.productId.in(subquery.list(product.productId)))
                 .and(product.startDate.isNull().or(product.startDate.before(new Date())))
                 .and(product.finishDate.isNull().or(product.finishDate.after(new Date())))
-                )
+        )
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .listResults(product);
@@ -121,14 +122,14 @@ public class ProductRepositoryImpl extends QueryDslRepositorySupport implements 
     @Override
     public List<Product> getProductTypeNoneIgnore() {
         QProduct product = QProduct.product;
-        
+
         JPQLQuery query = from(product);
-        
+
         return query.where(product.viewType.eq(ViewType.OPEN)
                 .and(product.tagType.ne(TagType.NONE))
                 .and(product.startDate.isNull().or(product.startDate.before(new Date())))
                 .and(product.finishDate.isNull().or(product.finishDate.after(new Date())))
-                )
+        )
                 .list(product);
     }
 

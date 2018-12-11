@@ -24,9 +24,9 @@ public class DemoApplicationTests {
     public void testSpringBootApp() throws IOException {
         String body = restTemplate.getForObject("/", String.class);
         assertThat(new ObjectMapper().readTree(body)
-            .get("message")
-            .textValue())
-            .isEqualTo("Hello World");
+                .get("message")
+                .textValue())
+                .isEqualTo("Hello World");
     }
 
 }

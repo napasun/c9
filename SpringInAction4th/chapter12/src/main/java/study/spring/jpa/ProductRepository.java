@@ -9,7 +9,6 @@ import com.estgames.cabal1.shop.product.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- *
  * @author asdf
  */
 public interface ProductRepository extends JpaRepository<Product, Long>, ProductCustomRepository {

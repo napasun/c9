@@ -8,20 +8,23 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MarcoController {
 
-  private static final Logger logger = LoggerFactory
-      .getLogger(MarcoController.class);
+    private static final Logger logger = LoggerFactory
+            .getLogger(MarcoController.class);
 
-  @MessageMapping("/marco")
-  public Shout handleShout(Shout incoming) {
-    logger.info("Received message: " + incoming.getMessage());
+    @MessageMapping("/marco")
+    public Shout handleShout(Shout incoming) {
+        logger.info("Received message: " + incoming.getMessage());
 
-    try { Thread.sleep(2000); } catch (InterruptedException e) {}
-    
-    Shout outgoing = new Shout();
-    outgoing.setMessage("Polo!");
-    System.out.println("ddd");
-    
-    return outgoing;
-  }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
+
+        Shout outgoing = new Shout();
+        outgoing.setMessage("Polo!");
+        System.out.println("ddd");
+
+        return outgoing;
+    }
 
 }

@@ -12,13 +12,13 @@ import study.spring.exception.AllDuplicateException;
 @RequestMapping("/")
 public class HomeController {
 
-  @RequestMapping(method = GET)
-  public String home(Model model) {
-    return "home";
-  }
+    @RequestMapping(method = GET)
+    public String home(Model model) {
+        return "home";
+    }
 
-  @RequestMapping(value="/error", method = GET)
-  public String error(Model model) {
-    throw new AllDuplicateException();
-  }
+    @RequestMapping(value = "/error", method = GET)
+    public String error(Model model) {
+        throw new AllDuplicateException();
+    }
 }

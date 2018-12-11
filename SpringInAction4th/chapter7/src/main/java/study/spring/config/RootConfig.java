@@ -11,12 +11,12 @@ import org.springframework.core.type.filter.RegexPatternTypeFilter;
 import study.spring.config.RootConfig.WebPackage;
 
 @Configuration
-@ComponentScan(basePackages = { "study.spring" }, excludeFilters = {
-		@Filter(type = FilterType.CUSTOM, value = WebPackage.class) })
+@ComponentScan(basePackages = {"study.spring"}, excludeFilters = {
+        @Filter(type = FilterType.CUSTOM, value = WebPackage.class)})
 public class RootConfig {
-	public static class WebPackage extends RegexPatternTypeFilter {
-		public WebPackage() {
-			super(Pattern.compile("spittr\\.web"));
-		}
-	}
+    public static class WebPackage extends RegexPatternTypeFilter {
+        public WebPackage() {
+            super(Pattern.compile("spittr\\.web"));
+        }
+    }
 }

@@ -8,18 +8,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class RandomNumberMessageSender {
 
-  private SimpMessagingTemplate messaging;
+    private SimpMessagingTemplate messaging;
 
-  @Autowired
-  public RandomNumberMessageSender(SimpMessagingTemplate messaging) {
-    this.messaging = messaging;
-  }
-  
-  @Scheduled(fixedRate=10000)
-  public void sendRandomNumber() {
-    Shout random = new Shout();
-    random.setMessage("Random # : " + (Math.random() * 100));
-    messaging.convertAndSend("/topic/marco", random);
-  }
-  
+    @Autowired
+    public RandomNumberMessageSender(SimpMessagingTemplate messaging) {
+        this.messaging = messaging;
+    }
+
+    @Scheduled(fixedRate = 10000)
+    public void sendRandomNumber() {
+        Shout random = new Shout();
+        random.setMessage("Random # : " + (Math.random() * 100));
+        messaging.convertAndSend("/topic/marco", random);
+    }
+
 }
