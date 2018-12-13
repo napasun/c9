@@ -1,10 +1,14 @@
 package com.study.customer;
 
+import com.rabbitmq.client.AMQP;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -59,9 +63,12 @@ class CustomerRegistrar {
 
     CustomerRespository customerRespository;
 
+    Sender sender;
+
     @Autowired
-    CustomerRegistrar(CustomerRespository customerRespository){
+    CustomerRegistrar(CustomerRespository customerRespository, Sender sender){
         this.customerRespository = customerRespository;
+        this.sender = sender;
     }
 
     public Mono<Customer> register(Customer customer){
@@ -69,8 +76,26 @@ class CustomerRegistrar {
             System.out.println("Duplicate Customer. No Action required");
         else {
             customerRespository.save(customer);
+            sender.send(customer.getEmail());
         }
         return Mono.just(customer);
+    }
+}
+
+@Component
+@Lazy
+class Sender {
+
+    @Autowired
+    RabbitMessagingTemplate template;
+
+    @Bean
+    Queue queue() {
+        return new Queue("CustomerQ", false);
+    }
+
+    public void send(String message) {
+        template.convertAndSend("CustomerQ", message);
     }
 }
 
