@@ -1,5 +1,0 @@
-입력
-    raw_input()
-    예) name = raw_input(), name = raw_input("your Name?")
-    
-print 명령어 끝에 ',' 를 입력하면 같은 줄에 계속 출력한다.
