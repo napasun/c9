@@ -9,3 +9,5 @@ soup = BeautifulSoup(res, "html.parser")
 price = soup.select_one("div.head_info > span.value").string
 
 print(price)
+
+# css 선택자 35pㅜ15973
