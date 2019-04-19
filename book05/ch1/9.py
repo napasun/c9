@@ -6,13 +6,14 @@ from urllib.parse import *
 from os import makedirs
 import os.path, time, re
 import sys
+import ssl
 
 proc_files = {}
 
 #링크 추출
 def enum_links(html, base):
     soup = BeautifulSoup(html, "html.parser")
-    links = soup.select("link[rel]='stylesheet") # css
+    links = soup.select("link[rel='stylesheet']") # css
     links += soup.select("a[href]")
     result = []
 
@@ -39,12 +40,16 @@ def download_file(url):
     # 파일 다운
     try:
         print("down = ", url)
-        urlretrieve(url, savepath)
+        #urlretrieve(url, savepath)
+        context = ssl.SSLContext()
+        response = urlopen(url, context=context).read()
+        with open(savepath, mode="wb") as f:
+            f.write(response)
         time.sleep(1)
         return savepath
     except:
         print("다운 실패: ", url)
-        print(sys.exc_info()[0])
+        print(sys.exc_info())
         return None
 # html을 분석하고 다운 받는 함수
 def analyze_html(url, root_url):
