@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 user = "wkzkfmxk12"
-password = "akwdmffo12@!"
+password = ""
 
 browser = webdriver.PhantomJS()
 browser.implicitly_wait(3)
