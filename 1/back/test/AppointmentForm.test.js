@@ -50,14 +50,14 @@ describe('AppointmentForm', () => {
                 />
             );
             
-            const optionNodes = Array.from(
+            const optionNodes = Array.from(     //서비스 필드의 자식노드 가져오기
                 field('service').childNodes
             );
-            const renderedServices = optionNodes.map(
+            const renderedServices = optionNodes.map(   //노드에 텍스트 가져오기
                 node => node.textContent
             );
             expect(renderedServices).toEqual(
-                expect.arrayContaining(selectableServices)
+                expect.arrayContaining(selectableServices)  //해당 select에 배열에 있는 값이 존재하는 지
             );
         });
 
