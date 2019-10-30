@@ -149,11 +149,11 @@ describe('first name field', () => {
         itRendersAsATextBox('lastName');
     });
 
-    it('has a submit button', () => {
-        render(<CustomerForm />);
-        const submitButton = container.querySelector(
-            'input[type="submit"]'
-        );
-        expect(submitButton).not.toBeNull();
-    });
+    // it('has a submit button', () => {
+    //     render(<CustomerForm />);
+    //     const submitButton = container.querySelector(
+    //         'input[type="submit"]'
+    //     );
+    //     expect(submitButton).not.toBeNull();
+    // });
 });
