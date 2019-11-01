@@ -23,6 +23,7 @@ export const CustomerForm = ({ firstName, onSubmit }) => {
                 type="text"
                 name="lastName"
             />
+            <input type="submit" value="Add" />
         </form>
     );
 };

@@ -24,7 +24,7 @@ describe('CustomerForm', () => {
 
 
 
-    it('firstName 엘리먼트 태그가이 input 이고 text 타입인지', () => {
+    it('firstName 엘리먼트 태그가 input 이고 text 타입인지', () => {
         render(<CustomerForm />);
         const field = form('customer').elements.firstName;
         expect(field).not.toBeNull();
