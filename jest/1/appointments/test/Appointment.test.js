@@ -96,7 +96,7 @@ describe('Appointment', () => {
         //기존 DOM노드를 새로 렌더링 된 노드트리로 바꾼다. 대체되는 DOM노드를 container에서 가져온다.
         ReactDOM.render(component, container);
 
-        expect(document.body.textContent).toMatch('Ashley');
+        expect(container.textContent).toMatch('Ashley');
     });
 
     it.skip('renders another customer first name', () => {
