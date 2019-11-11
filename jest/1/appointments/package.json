@@ -21,10 +21,14 @@
   "dependencies": {
     "@babel/runtime": "^7.6.2",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "whatwg-fetch": "^3.0.0"
   },
   "jest": {
-    "roots" : ["<rootDir>/src/", "<rootDir>/tests/"],
-    "testRegex" : "(/__tests__/.*|(\\.|/)(spec))\\.jsx?$)"
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.jsx?$)"
   }
 }
