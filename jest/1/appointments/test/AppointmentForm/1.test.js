@@ -53,5 +53,22 @@ describe('AppointmentForm', () => {
             );
             expect(renderedServices).toEqual(expect.arrayContaining(selectableServices));
         });
+
+        const findOption = (dropdownNode, textContent) => {
+            const options = Array.from(dropdownNode.childNodes);
+            return options.find(option => option.textContent === textContent);
+        };
+
+        it('설정된 기본값이 설정되어 있는 가?', () => {
+           const services = ['Cut', 'Blow-dry'];
+            render(
+                <AppointmentForm
+                    selectableServices={services}
+                    service="Blow-dry"
+                />
+            );
+            const option = findOption(field('service'), 'Blow-dry');
+            expect(option.selected).toBeTruthy();
+        });
     });
 });
