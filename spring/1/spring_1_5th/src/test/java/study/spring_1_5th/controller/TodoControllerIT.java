@@ -32,4 +32,12 @@ public class TodoControllerIT {
     private String createUrl(String url) {
         return "http://localhost:"+port+url;
     }
+
+    @Test
+    public void retrieveTodo() throws Exception {
+        String expected = "{id:1,user:Jack,desc:\"Learn Spring MVC\",done:false}";
+
+        ResponseEntity<String> response = template.getForEntity(createUrl("/users/Jack/todos/1"), String.class);
+        JSONAssert.assertEquals(expected, response.getBody(), false);
+    }
 }
