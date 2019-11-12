@@ -18,9 +18,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -29,6 +30,8 @@ public class TodoControllerTest {
     @Autowired private MockMvc mvc;
 
     @MockBean private TodoService service;
+
+    private static final int CREATED_TODO_ID = 4;
 
     @Test
     public void retrieveTodos() throws  Exception {
@@ -60,5 +63,22 @@ public class TodoControllerTest {
         String expected = "{id:1,user:Jack,desc:\"Learn Spring MVC\",done:false}";
 
         JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+    }
+
+    @Test
+    public void createTodo() throws Exception {
+        Todo mockTodo = new Todo(CREATED_TODO_ID, "Jack", "Learn Spring MVC", new Date(), false);
+
+        String todo = "{\"user\":\"Jack\",\"desc\":\"Learn Spring MVC\",\"done\":\"false\"}";
+
+        when(service.addTodo(anyString(), anyString(), isNull(), anyBoolean())).thenReturn(mockTodo);
+
+        mvc.perform(MockMvcRequestBuilders.post("/users/Jack/todos")
+                .content(todo)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated())
+                .andExpect(
+                        header().string("location", containsString("/users/Jack/todos/" + CREATED_TODO_ID)));
+
     }
 }
