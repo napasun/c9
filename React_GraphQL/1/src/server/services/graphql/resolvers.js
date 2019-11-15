@@ -1,4 +1,10 @@
 import logger from '../../helpers/logger';
+import Sequelize from 'sequelize';
+import bcrypt from 'bcrypt';
+import JWT from 'jsonwebtoken';
+
+const { JWT_SECRET } = process.env;
+const Op = Sequelize.Op;
 
 let posts = [{
   id: 2,
@@ -103,6 +109,32 @@ export default function resolver() {
           posts: Post.findAll(query)
         };
       },
+      usersSearch(root, { page, limit, text }, context) {
+        if(text.length < 3) {
+          return {
+            users: []
+          };
+        }
+        var skip = 0;
+        if(page && limit) {
+          skip = page * limit;
+        }
+        var query = {
+          order: [['createdAt', 'DESC']],
+          offset: skip,
+        };
+        if(limit) {
+          query.limit = limit;
+        }
+        query.where = {
+          username: {
+            [Op.like]: '%' + text + '%'
+          }
+        };
+        return {
+          users: User.findAll(query)
+        };
+      },
     },
     RootMutation: {
       addPost(root, { post }, context) {
@@ -157,6 +189,70 @@ export default function resolver() {
               return newMessage;
             });
           });
+        });
+      },
+      updatePost(root, { post, postId }, context) {
+        return Post.update({...post}, {where: {id: postId}
+        }).then((rows) => {
+          if (rows[0] === 1) {
+            logger.log({
+              level: 'info',
+              message: 'Post ' + postId + ' was updated',
+            });
+
+            return Post.findByPk(postId);
+          }
+        });
+      },
+      deletePost(root, { postId }, context) {
+        return Post.destroy({
+          where: {
+            id: postId
+          }
+        }).then(function(rows){
+          if(rows === 1){
+            logger.log({
+              level: 'info',
+              message: 'Post ' + postId + 'was deleted',
+            });
+            return {
+              success: true
+            };
+          }
+          return {
+            success: false
+          };
+        }, function(err){
+          logger.log({
+            level: 'error',
+            message: err.message,
+          });
+        });
+      },
+      login(root, { email, password }, context) {
+        return User.findAll({
+          where: {
+            email
+          },
+          raw: true
+        }).then(async (users) => {
+          if(users.length = 1) {
+            const user = users[0];
+            const passwordValid = await bcrypt.compare(password, 
+            user.password);
+            if (!passwordValid) {
+              throw new Error('Password does not match');
+            }
+            const token = JWT.sign({ email, id: user.id }, JWT_SECRET, {
+              expiresIn: '1d'
+            });
+      
+            return {
+              token
+            };
+          } else {
+            throw new Error("User not found");
+          }
         });
       },
     }

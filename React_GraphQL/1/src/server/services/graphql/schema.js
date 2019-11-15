@@ -29,8 +29,20 @@ const typeDefinitions = `
     posts: [Post]
   }
 
+  type Response {
+    success: Boolean
+  }
+
   input PostInput {
     text: String!
+  }
+
+  type UsersSearch {
+    users: [User]
+  }
+
+  type Auth {
+    token: String
   }
   
   input UserInput {
@@ -53,6 +65,7 @@ const typeDefinitions = `
     chats: [Chat]
     chat(chatId: Int): Chat
     postsFeed(page: Int, limit: Int): PostFeed
+    usersSearch(page: Int, limit: Int, text: String!): UsersSearch
   }
 
   type RootMutation {
@@ -65,6 +78,17 @@ const typeDefinitions = `
     addMessage (
       message: MessageInput!
     ): Message
+    updatePost (
+      post: PostInput!
+      postId: Int!
+    ): Post
+    deletePost (
+      postId: Int!
+    ): Response
+    login (
+      email: String!
+      password: String!
+    ): Auth
   }
 
   schema {
