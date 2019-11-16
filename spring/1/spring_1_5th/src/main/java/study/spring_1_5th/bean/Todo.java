@@ -1,11 +1,15 @@
 package study.spring_1_5th.bean;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Todo {
     private int id;
-    private String user;
 
+    @NotNull
+    private String user;
+    @Size(min = 9, message = "Enter atleast 10 Characters.")
     private String desc;
 
     private Date targetDate;
