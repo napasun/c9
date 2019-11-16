@@ -7,7 +7,7 @@ import java.util.Date;
 public class Todo {
     private int id;
 
-    @NotNull
+    @NotNull    //p272
     private String user;
     @Size(min = 9, message = "Enter atleast 10 Characters.")
     private String desc;
