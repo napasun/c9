@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
-if (process.env.NODE_ENV === 'development') {
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
     require('babel-plugin-require-context-hook/register')()
 }
 
