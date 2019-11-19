@@ -2,6 +2,7 @@ package study.spring_1_5th;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Arrays;
 import java.util.Locale;
 
+@EnableCaching  // 캐시 300p
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
