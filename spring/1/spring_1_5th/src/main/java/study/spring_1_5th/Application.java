@@ -20,9 +20,9 @@ public class Application {
         String[] beanNames = ctx.getBeanDefinitionNames();
         Arrays.sort(beanNames);
 
-        for (String beanName : beanNames) {
-            System.out.println(beanName);       // 자동으로 정의된 빈
-        }
+//        for (String beanName : beanNames) {
+//            System.out.println(beanName);       // 자동으로 정의된 빈
+//        }
     }
     //국제화
     @Bean
