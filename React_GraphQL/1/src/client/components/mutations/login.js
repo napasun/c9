@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Mutation } from "react-apollo";
+import gql from "graphql-tag";
 
 const LOGIN = gql`
   mutation login($email : String!, $password : String!) {
     login(email : $email, password : $password) {
       token
     }
-  }`;
+ }`;
 
 export default class LoginMutation extends Component {
     render() {
