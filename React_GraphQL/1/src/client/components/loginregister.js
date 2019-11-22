@@ -42,11 +42,12 @@ class LoginForm extends Component {
 
 export default class LoginRegisterForm extends Component {
     state = {
-        showLogin: true
+        showLogin: false
     }
     render() {
         const { changeLoginState } = this.props;
         const { showLogin } = this.state;
+        
         return (
             <div className="authModal">
                 {showLogin && (
