@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@NamedQuery(name = "User.findUsersWithNameUsingNamedQuery", query = "select u from User u where u.name = ?1")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
