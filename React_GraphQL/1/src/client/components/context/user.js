@@ -36,7 +36,8 @@ export class UserConsumer extends Component {
         const { children } = this.props;
         return (
             <ApolloConsumer>
-                {client => {
+                {
+                    /* {client => {
                     // Use client.readQuery to get the current logged in user.
                     const user = {
                         username: "Test User",
@@ -44,6 +45,12 @@ export class UserConsumer extends Component {
                     };
                     return React.Children.map(children, function(child){
                         return React.cloneElement(child, { user });
+                    });
+                    }} */
+                client => {
+                    const {currentUser} = client.readQuery({ query: GET_CURRENT_USER});
+                    return React.Children.map(children, function(child){
+                        return React.cloneElement(child, { user: currentUser });
                     });
                 }}
             </ApolloConsumer>

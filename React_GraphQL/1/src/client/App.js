@@ -32,9 +32,11 @@ export default class App extends Component {
                 </Helmet>
                 {this.state.loggedIn ?
                     <div>
-                        <Bar />
-                        <Feed />
-                        <Chats />
+                        <CurrentUserQuery>
+                            <Bar />
+                            <Feed />
+                            <Chats />
+                        </CurrentUserQuery>
                     </div>
                     : <LoginRegisterForm changeLoginState={this.changeLoginState}/>
                 }
