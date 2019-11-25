@@ -1,3 +1,5 @@
+//directive @auth on QUERY | FIELD_DEFINITION | FIELD
+//이 작은 스니펫은 Apollo 서버에 @auth지시문을 쿼리, 필드 및 필드 정의와 함께 사용하여 모든 곳에서 사용할 수 있음을 알려줍니다 .
 const typeDefinitions = `
 directive @auth on QUERY | FIELD_DEFINITION | FIELD
 
@@ -5,6 +7,7 @@ directive @auth on QUERY | FIELD_DEFINITION | FIELD
     id: Int
     avatar: String
     username: String
+    email: String
   }
 
   type Post {
@@ -66,8 +69,10 @@ directive @auth on QUERY | FIELD_DEFINITION | FIELD
     posts: [Post]
     chats: [Chat]
     chat(chatId: Int): Chat
-    postsFeed(page: Int, limit: Int): PostFeed @auth
+    postsFeed(page: Int, limit: Int, username: String): PostFeed @auth
+    user(username: String!): User @auth
     usersSearch(page: Int, limit: Int, text: String!): UsersSearch
+    currentUser: User @auth
   }
 
   type RootMutation {
