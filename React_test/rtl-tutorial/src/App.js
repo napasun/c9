@@ -2,10 +2,11 @@ import React from 'react';
 import Profile from './Profile'
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter';
 
 function App() {
   return (
-    <Profile username="velopert" name="test"></Profile>
+    <Counter username="velopert" name="test"></Counter>
   );
 }
 
