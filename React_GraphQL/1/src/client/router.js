@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import LoginRegisterForm from './components/loginregister';
 import Main from './Main';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import User from './User';
+// import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+const ReactRouter = require("react-router-dom");
+let Router;
+if(typeof window !== typeof undefined) {
+  const { BrowserRouter } = ReactRouter;
+  Router = BrowserRouter;
+} else {
+  const { StaticRouter } = ReactRouter;
+  Router = StaticRouter;
+}
+const { Route, Redirect, Switch } = ReactRouter;
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -36,7 +47,7 @@ class NotFound extends Component {
 export default class Routing extends Component {
     render() {
         return (
-            <Router>
+            <Router context={this.props.context} location={this.props.location}>
                 <Switch>
                     {/* <Route path="/app" component={() => <Main changeLoginState={this.props.changeLoginState} />} /> */}
                     <PrivateRoute path="/app" component={() => <Main changeLoginState={this.props.changeLoginState} />} loggedIn={this.props.loggedIn} />
