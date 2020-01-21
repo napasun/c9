@@ -1,0 +1,52 @@
+version: '2.1'
+
+services:
+  eureka:
+    build: cloud/eureka-server
+    mem_limit: 350m
+    ports:
+      - "8761:8761"
+    networks:
+      - my-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  gateway:
+    build: cloud/gateway
+    mem_limit: 350m
+    ports:
+      - "8765:8765"
+    networks:
+      - my-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  config-server:
+    build: cloud/config-server
+    mem_limit: 350m
+    networks:
+      - my-network
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker,native
+    volumes:
+      - $PWD/config:/config
+
+
+#  mysql:
+#    image: mysql:5.7
+#    mem_limit: 350m
+#    networks:
+#      - my-network
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=test1234
+#      - MYSQL_DATABASE=invest
+#      - MYSQL_USER=user
+#      - MYSQL_PASSWORD=pwd
+
+networks:
+  my-network:
+    name: my-network
