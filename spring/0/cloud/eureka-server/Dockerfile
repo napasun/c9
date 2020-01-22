@@ -6,4 +6,4 @@ ADD ./target/*.jar eureka-server.jar
 
 ADD ./wait-for-it.sh wait-for-it.sh
 
-#ENTRYPOINT ["java","-jar","/eureka-server.jar"]
+ENTRYPOINT ["bash", "./wait-for-it.sh", "-t", "0", "config-server:8888", "--",  "java","-jar","/eureka-server.jar"]

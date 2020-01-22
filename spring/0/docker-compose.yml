@@ -7,7 +7,7 @@ services:
       - "8761:8761"
     networks:
       - my-network
-    command: ["./wait-for-it.sh", "-t", "0", "config-server:8888", "--", "java", "-jar", "eureka-server.jar"]
+    #command: ["bash", "./wait-for-it.sh", "-t", "0", "config-server:8888", "--", "java", "-jar", "eureka-server.jar"]
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 
@@ -19,7 +19,7 @@ services:
       - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-    command: ["./wait-for-it.sh", "-t", "0", "config-server:8888", "--", "java", "-jar", "gateway.jar"]
+#    command: ["bash", "./wait-for-it.sh", "-t", "0", "config-server:8888", "--", "java", "-jar", "gateway.jar"]
 
   config-server:
     build: cloud/config-server
