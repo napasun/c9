@@ -4,4 +4,6 @@ EXPOSE 8765
 
 ADD ./target/*.jar gateway.jar
 
-ENTRYPOINT ["java","-jar","/gateway.jar"]
+ADD ./wait-for-it.sh wait-for-it.sh
+
+#ENTRYPOINT ["java","-jar","/gateway.jar"]

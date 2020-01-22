@@ -3,8 +3,10 @@ spring:
   application.name: config-server
   profiles.active: native
   cloud.config.server.native.searchLocations: file:../../config
+  #cloud.config.server.native.searchLocations: file:/config
 
 ---
 spring.profiles: docker
-spring.cloud.config.server.native.searchLocations: file:../../config
+#cloud.config.server.native.searchLocations: file:../../config
+cloud.config.server.native.searchLocations: file:/config
 

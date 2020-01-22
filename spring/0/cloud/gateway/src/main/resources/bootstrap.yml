@@ -14,4 +14,4 @@ spring:
 ---
 spring.profiles: docker
 
-app.config-server: localhost
+app.config-server: config-server
