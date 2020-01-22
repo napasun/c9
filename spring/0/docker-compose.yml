@@ -30,7 +30,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker,native
     volumes:
-      - $PWD/config:/config
+      - ./config:/config
 
 
 #  mysql:

@@ -7,6 +7,6 @@ spring:
 
 ---
 spring.profiles: docker
-#cloud.config.server.native.searchLocations: file:../../config
 cloud.config.server.native.searchLocations: file:/config
+#cloud.config.server.native.searchLocations: file:/config
 
