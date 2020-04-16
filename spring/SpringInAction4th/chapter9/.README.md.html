@@ -1,0 +1,797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>C:\Users\khj\git\Spring_Study\SpringInAction4th\chapter9\.README.md.html</title>
+
+
+    <style type="text/css">
+        body {
+            color: #333;
+            font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            background: transparent;
+            color: #4183c4;
+            text-decoration: none;
+        }
+
+        a:active,
+        a:hover {
+            outline: 0 none;
+            text-decoration: underline;
+        }
+
+        abbr[title] {
+            border-bottom: 1px dotted;
+        }
+
+        b,
+        strong {
+            font-weight: bold;
+        }
+
+        dfn {
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        mark {
+            background: #ff0;
+            color: #000;
+        }
+
+        small {
+            font-size: 80%;
+        }
+
+        sub, sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        img {
+            border: 0 none;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+        }
+
+        figure {
+            margin: 1em 40px;
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0;
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        pre {
+            overflow: auto;
+            font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .markdown-body {
+            padding: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .markdown-body > *:first-child {
+            margin-top: 0 !important;
+        }
+
+        .markdown-body > *:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .markdown-body .absent {
+            color: #c00;
+        }
+
+        .markdown-body .anchor {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            padding-right: 6px;
+            padding-left: 30px;
+            margin-left: -30px;
+        }
+
+        .markdown-body .anchor:focus {
+            outline: none;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            position: relative;
+            margin-top: 1em;
+            margin-bottom: 16px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .markdown-body h1 .octicon-link,
+        .markdown-body h2 .octicon-link,
+        .markdown-body h3 .octicon-link,
+        .markdown-body h4 .octicon-link,
+        .markdown-body h5 .octicon-link,
+        .markdown-body h6 .octicon-link {
+            display: none;
+            color: #000;
+            vertical-align: middle;
+        }
+
+        .markdown-body h1:hover .anchor,
+        .markdown-body h2:hover .anchor,
+        .markdown-body h3:hover .anchor,
+        .markdown-body h4:hover .anchor,
+        .markdown-body h5:hover .anchor,
+        .markdown-body h6:hover .anchor {
+            padding-left: 8px;
+            margin-left: -30px;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .markdown-body h1:hover .anchor .octicon-link,
+        .markdown-body h2:hover .anchor .octicon-link,
+        .markdown-body h3:hover .anchor .octicon-link,
+        .markdown-body h4:hover .anchor .octicon-link,
+        .markdown-body h5:hover .anchor .octicon-link,
+        .markdown-body h6:hover .anchor .octicon-link {
+            display: inline-block;
+        }
+
+        .markdown-body h1 tt,
+        .markdown-body h1 code,
+        .markdown-body h2 tt,
+        .markdown-body h2 code,
+        .markdown-body h3 tt,
+        .markdown-body h3 code,
+        .markdown-body h4 tt,
+        .markdown-body h4 code,
+        .markdown-body h5 tt,
+        .markdown-body h5 code,
+        .markdown-body h6 tt,
+        .markdown-body h6 code {
+            font-size: inherit;
+        }
+
+        .markdown-body h1 {
+            padding-bottom: 0.3em;
+            font-size: 2.25em;
+            line-height: 1.2;
+            border-bottom: 1px solid #eee;
+        }
+
+        .markdown-body h2 {
+            padding-bottom: 0.3em;
+            font-size: 1.75em;
+            line-height: 1.225;
+            border-bottom: 1px solid #eee;
+        }
+
+        .markdown-body h3 {
+            font-size: 1.5em;
+            line-height: 1.43;
+        }
+
+        .markdown-body h4 {
+            font-size: 1.25em;
+        }
+
+        .markdown-body h5 {
+            font-size: 1em;
+        }
+
+        .markdown-body h6 {
+            font-size: 1em;
+            color: #777;
+        }
+
+        .markdown-body p, .markdown-body blockquote,
+        .markdown-body ul, .markdown-body ol,
+        .markdown-body dl, .markdown-body table,
+        .markdown-body pre {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body hr {
+            height: 4px;
+            padding: 0;
+            margin: 16px 0;
+            background-color: #e7e7e7;
+            border: 0 none;
+        }
+
+        .markdown-body ul,
+        .markdown-body ol {
+            padding-left: 2em;
+        }
+
+        .markdown-body ul.no-list,
+        .markdown-body ol.no-list {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .markdown-body ul ul,
+        .markdown-body ul ol,
+        .markdown-body ol ol,
+        .markdown-body ol ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body li > p {
+            margin-top: 16px;
+        }
+
+        .markdown-body dl {
+            padding: 0;
+        }
+
+        .markdown-body dl dt {
+            padding: 0;
+            margin-top: 16px;
+            font-size: 1em;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .markdown-body dl dd {
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body blockquote {
+            padding: 0 15px;
+            color: #777;
+            border-left: 4px solid #ddd;
+        }
+
+        .markdown-body blockquote > :first-child {
+            margin-top: 0;
+        }
+
+        .markdown-body blockquote > :last-child {
+            margin-bottom: 0;
+        }
+
+        .markdown-body table {
+            display: block;
+            width: 100%;
+            overflow: auto;
+            word-break: normal;
+            word-break: keep-all;
+        }
+
+        .markdown-body table th {
+            font-weight: bold;
+        }
+
+        .markdown-body table th,
+        .markdown-body table td {
+            padding: 6px 13px;
+            border: 1px solid #ddd;
+        }
+
+        .markdown-body table tr {
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+
+        .markdown-body table tr:nth-child(2n) {
+            background-color: #f8f8f8;
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .markdown-body span.frame {
+            display: block;
+            overflow: hidden;
+        }
+
+        .markdown-body span.frame > span {
+            display: block;
+            float: left;
+            width: auto;
+            padding: 7px;
+            margin: 13px 0 0;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .markdown-body span.frame span img {
+            display: block;
+            float: left;
+        }
+
+        .markdown-body span.frame span span {
+            display: block;
+            padding: 5px 0 0;
+            clear: both;
+            color: #333;
+        }
+
+        .markdown-body span.align-center {
+            display: block;
+            overflow: hidden;
+            clear: both;
+        }
+
+        .markdown-body span.align-center > span {
+            display: block;
+            margin: 13px auto 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .markdown-body span.align-center span img {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .markdown-body span.align-right {
+            display: block;
+            overflow: hidden;
+            clear: both;
+        }
+
+        .markdown-body span.align-right > span {
+            display: block;
+            margin: 13px 0 0;
+            overflow: hidden;
+            text-align: right;
+        }
+
+        .markdown-body span.align-right span img {
+            margin: 0;
+            text-align: right;
+        }
+
+        .markdown-body span.float-left {
+            display: block;
+            float: left;
+            margin-right: 13px;
+            overflow: hidden;
+        }
+
+        .markdown-body span.float-left span {
+            margin: 13px 0 0;
+        }
+
+        .markdown-body span.float-right {
+            display: block;
+            float: right;
+            margin-left: 13px;
+            overflow: hidden;
+        }
+
+        .markdown-body span.float-right > span {
+            display: block;
+            margin: 13px auto 0;
+            overflow: hidden;
+            text-align: right;
+        }
+
+        .markdown-body code, .markdown-body tt {
+            padding: 0;
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(0, 0, 0, 0.04);
+            border-radius: 3px;
+        }
+
+        .markdown-body code:before,
+        .markdown-body code:after,
+        .markdown-body tt:before,
+        .markdown-body tt:after {
+            letter-spacing: -0.2em;
+            content: "\00a0";
+        }
+
+        .markdown-body code br,
+        .markdown-body tt br {
+            display: none;
+        }
+
+        .markdown-body del code {
+            text-decoration: inherit;
+        }
+
+        .markdown-body pre > code {
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            background: transparent;
+            border: 0;
+        }
+
+        .markdown-body .highlight {
+            margin-bottom: 16px;
+        }
+
+        .markdown-body .highlight pre,
+        .markdown-body pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border-radius: 3px;
+        }
+
+        .markdown-body .highlight pre {
+            margin-bottom: 0;
+            word-break: normal;
+        }
+
+        .markdown-body pre {
+            word-wrap: normal;
+        }
+
+        .markdown-body pre code,
+        .markdown-body pre tt {
+            display: inline;
+            max-width: initial;
+            padding: 0;
+            margin: 0;
+            overflow: initial;
+            line-height: inherit;
+            word-wrap: normal;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .markdown-body pre code:before,
+        .markdown-body pre code:after,
+        .markdown-body pre tt:before,
+        .markdown-body pre tt:after {
+            content: normal;
+        }
+
+        .highlight .pl-coc,
+        .highlight .pl-entl,
+        .highlight .pl-entm,
+        .highlight .pl-eoa,
+        .highlight .pl-mai .pl-sf,
+        .highlight .pl-mm,
+        .highlight .pl-pdv,
+        .highlight .pl-sc,
+        .highlight .pl-som,
+        .highlight .pl-sr,
+        .highlight .pl-v,
+        .highlight .pl-vpf {
+            color: #0086b3;
+        }
+
+        .highlight .pl-eoac,
+        .highlight .pl-mdht,
+        .highlight .pl-mi1,
+        .highlight .pl-mri,
+        .highlight .pl-va,
+        .highlight .pl-vpu {
+            color: #008080;
+        }
+
+        .highlight .pl-c,
+        .highlight .pl-pdc {
+            color: #b4b7b4;
+            font-style: italic;
+        }
+
+        .highlight .pl-k,
+        .highlight .pl-ko,
+        .highlight .pl-kolp,
+        .highlight .pl-mc,
+        .highlight .pl-mr,
+        .highlight .pl-ms,
+        .highlight .pl-s,
+        .highlight .pl-sok,
+        .highlight .pl-st {
+            color: #6e5494;
+        }
+
+        .highlight .pl-ef,
+        .highlight .pl-enf,
+        .highlight .pl-enm,
+        .highlight .pl-entc,
+        .highlight .pl-eoi,
+        .highlight .pl-sf,
+        .highlight .pl-smc {
+            color: #d12089;
+        }
+
+        .highlight .pl-ens,
+        .highlight .pl-eoai,
+        .highlight .pl-kos,
+        .highlight .pl-mh .pl-pdh,
+        .highlight .pl-mp,
+        .highlight .pl-pde,
+        .highlight .pl-stp {
+            color: #458;
+        }
+
+        .highlight .pl-enti {
+            color: #d12089;
+            font-weight: bold;
+        }
+
+        .highlight .pl-cce,
+        .highlight .pl-enc,
+        .highlight .pl-kou,
+        .highlight .pl-mq {
+            color: #f93;
+        }
+
+        .highlight .pl-mp1 .pl-sf {
+            color: #458;
+            font-weight: bold;
+        }
+
+        .highlight .pl-cos,
+        .highlight .pl-ent,
+        .highlight .pl-md,
+        .highlight .pl-mdhf,
+        .highlight .pl-ml,
+        .highlight .pl-pdc1,
+        .highlight .pl-pds,
+        .highlight .pl-s1,
+        .highlight .pl-scp,
+        .highlight .pl-sol {
+            color: #df5000;
+        }
+
+        .highlight .pl-c1,
+        .highlight .pl-cn,
+        .highlight .pl-pse,
+        .highlight .pl-pse .pl-s2,
+        .highlight .pl-vi {
+            color: #a31515;
+        }
+
+        .highlight .pl-mb,
+        .highlight .pl-pdb {
+            color: #df5000;
+            font-weight: bold;
+        }
+
+        .highlight .pl-mi,
+        .highlight .pl-pdi {
+            color: #6e5494;
+            font-style: italic;
+        }
+
+        .highlight .pl-ms1 {
+            background-color: #f5f5f5;
+        }
+
+        .highlight .pl-mdh,
+        .highlight .pl-mdi {
+            font-weight: bold;
+        }
+
+        .highlight .pl-mdr {
+            color: #0086b3;
+            font-weight: bold;
+        }
+
+        .highlight .pl-s2 {
+            color: #333;
+        }
+
+        .highlight .pl-ii {
+            background-color: #df5000;
+            color: #fff;
+        }
+
+        .highlight .pl-ib {
+            background-color: #f93;
+        }
+
+        .highlight .pl-id {
+            background-color: #a31515;
+            color: #fff;
+        }
+
+        .highlight .pl-iu {
+            background-color: #b4b7b4;
+        }
+
+        .highlight .pl-mo {
+            color: #969896;
+        }
+
+    </style>
+
+
+    <script type="text/javascript">
+
+        function getDocumentScrollTop() {
+            var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+            // alert(res);
+            return res;
+        }
+
+        function setDocumentScrollTop(ypos) {
+            window.scrollTo(0, ypos);
+        }
+
+    </script>
+
+
+</head>
+<body class="markdown-body">
+<h1><a id="chapter9-웹-애플리케이션-보안" class="anchor"
+       href="#chapter9-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%B3%B4%EC%95%88"
+       aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CHAPTER9 웹 애플리케이션 보안</h1>
+<h1><a id="-등록" class="anchor" href="#-%EB%93%B1%EB%A1%9D" aria-hidden="true"><span aria-hidden="true"
+                                                                                    class="octicon octicon-link"></span></a>.
+    등록</h1>
+<ul>
+    <li>DelegatingFilterProxy 필터를 등록해야 한다.
+        <ol>
+            <li>WebSecurityConfigurerAdapter를 상속받는 설정클래스를 만든 다.</li>
+            <li>XML</li>
+        </ol>
+        <div class="highlight highlight-text-xml">
+   <pre>&lt;<span class="pl-ent">filter</span>&gt;
+  &lt;<span class="pl-ent">filter-name</span>&gt;springSecurityFilterChain&lt;/<span class="pl-ent">filter-name</span>&gt;
+  &lt;<span class="pl-ent">filter-class</span>&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/<span
+               class="pl-ent">filter-class</span>&gt;
+&lt;/<span class="pl-ent">filter</span>&gt;
+&lt;<span class="pl-ent">filter-mapping</span>&gt;
+  &lt;<span class="pl-ent">filter-name</span>&gt;springSecurityFilterChain&lt;/<span class="pl-ent">filter-name</span>&gt;
+  &lt;<span class="pl-ent">url-pattern</span>&gt;/*&lt;/<span class="pl-ent">url-pattern</span>&gt;
+&lt;/<span class="pl-ent">filter-mapping</span>&gt;</pre>
+        </div>
+        <h1><a id="설정" class="anchor" href="#%EC%84%A4%EC%A0%95" aria-hidden="true"><span aria-hidden="true"
+                                                                                          class="octicon octicon-link"></span></a>설정
+        </h1></li>
+    <li>WebSecurityConfigurerAdapter의 세가지 configure() 메소드를 오버라이딩하여 웹 보안을 설정한다.
+        <ol>
+            <li>configure(WebSecurity) - 필터 연결 설정</li>
+            <li>configure(HttpSecurity) - 인터셉터로 요청을 안전하게 보호하는 방법을 설정</li>
+            <li>configure(AuthenticationManagerBuilder) - 사용자 세부 서비스를 설정</li>
+        </ol>
+    </li>
+</ul>
+<h3><a id="사용자-저장소-설정" class="anchor" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%80%EC%9E%A5%EC%86%8C-%EC%84%A4%EC%A0%95"
+       aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>사용자 저장소 설정</h3>
+<ol>
+    <li>인메모리
+        <ul>
+            <li>configure(AuthenticationManagerBuilder) 오버라이딩</li>
+            <li>AuthenticationManagerBuilder.inMemoryAuthentication() - 인메모리 활성화</li>
+            <li>withUser(String) - 유저이름 설정</li>
+            <li>password(String) - 암호 설정</li>
+            <li>roles(String) - 권한 설정</li>
+            <li>and() - 설정 연결</li>
+        </ul>
+    </li>
+    <li>데이터 베이스
+        <ul>
+            <li>jdbcAuthentication() - jdbc 활성화</li>
+            <li>dataSource(DataSource) - DataSource 연결</li>
+        </ul>
+    </li>
+</ol>
+<h3><a id="인증이-필요한-요청-설정" class="anchor"
+       href="#%EC%9D%B8%EC%A6%9D%EC%9D%B4-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9A%94%EC%B2%AD-%EC%84%A4%EC%A0%95"
+       aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>인증이 필요한 요청 설정</h3>
+<ul>
+    <li>configure(HttpSecurity) 오버라이딩</li>
+    <li>HttpSecurity.authorizeRequests() 호출, 반환되는 객체로 호출되는 메소드로 요청 보안 설정</li>
+    <li>보안이 필요한 요청 명시 -&gt; 해당 요청에 대한 권한 설정</li>
+    <li>요청 명시
+        <ol>
+            <li>antMatchers(String url) - 해당 URL</li>
+            <li>regexMatchers(String reg) - 정규 표현식</li>
+            <li>anyRequest() - 전부</li>
+        </ol>
+    </li>
+    <li>권한 설정
+        <ol>
+            <li>authenticated() - 로그인한 사용자</li>
+            <li>hasRole(String) - 권한 명시</li>
+            <li>access(String) - 스프링 표현식으로 권한 명시 가능 access(&quot;hasRole('USER')&quot;) 320쪽 목록</li>
+            <li>permitAll() - 보안 설정 없음</li>
+            <li>318쪽</li>
+        </ol>
+    </li>
+    <li>채널 보안
+        <ol>
+            <li>requiresChannel() 호출</li>
+            <li>HTTP requiresInsecure()</li>
+            <li>HTTPS requiresSecure()</li>
+        </ol>
+    </li>
+    <li>사이트 간 요청 위조 방지
+        <ol>
+            <li>CSRF 토큰 사용</li>
+            <li>GET, HEAD, OPRION, TRACE 아닌 요청들을 가로 채서 CSRF 토큰을 확인함</li>
+            <li>name = ${_csrf.parameterName}, value = ${_csrf.token}</li>
+        </ol>
+    </li>
+</ul>
+<h3><a id="로그인-화면" class="anchor" href="#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%99%94%EB%A9%B4" aria-hidden="true"><span
+        aria-hidden="true" class="octicon octicon-link"></span></a>로그인 화면</h3>
+<ul>
+    <li>configure(HttpSecurity) 오버라이딩</li>
+    <li>formLogin() - 기본 로그인 페이지 활성화, /login 기본</li>
+    <li>loginPage(String url) - 사용자 정의 로그인 페이지 설정</li>
+    <li>httpBasic() - HTTP 기본 인증 활성화</li>
+    <li>기억하기
+        <ol>
+            <li>rememberMe() - 기억하기 활성화</li>
+            <li>tokenValiditySecounds(int time) - 토큰을 저장하고 있는 시간 설정</li>
+            <li>key(String key) - 토큰이 함호화 저장되는 데 사용되는 키</li>
+            <li>form 데이터에서 name이 'remember-me' 인 데이터를 포함해야 한다.</li>
+        </ol>
+    </li>
+    <li>로그 아웃
+        <ul>
+            <li>/logout 기본설정</li>
+            <li>logout() - 로그아웃 설정 활성화</li>
+            <li>logoutSuccessUrl(String url) - 로그 아웃 시 리다이렉션 되는 페이지</li>
+        </ul>
+    </li>
+</ul>
+<h3><a id="뷰" class="anchor" href="#%EB%B7%B0" aria-hidden="true"><span aria-hidden="true"
+                                                                        class="octicon octicon-link"></span></a>뷰</h3>
+<ul>
+    <li>spring-security-taglibs</li>
+    <li>%@ taglib prefix=&quot;security&quot; uri=&quot;<a href="http://www.springframework.org/security/tags">http://www.springframework.org/security/tags</a>&quot;
+        % 태그 라이브러리 선언
+    </li>
+    <li>security : authentiation property=&quot;&quot; 프로퍼티 접근 331쪽 목록</li>
+    <li>security : authorize access=&quot;hasRole=('ROLE_USER')&quot;</li>
+</ul>
+</body>
+</html>

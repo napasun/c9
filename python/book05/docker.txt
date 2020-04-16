@@ -1,0 +1,4 @@
+docker run -i -t -v /Users/webplatformestgames/Desktop/1/Study/book05:/study -e ko_KR.UTF-8 -e PYTHONIOENCODING=utf_8 ubuntu-phantomjs:init /bin/bash
+
+
+pip3 install -U scikit-learn scipy matplotlib scikit-image pandas
