@@ -1,0 +1,24 @@
+{
+  "name": "Study",
+  "version": "1.0.0",
+  "description": "공부 프로젝트",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+    , "cover" : "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/napasun/Study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/napasun/Study/issues"
+  },
+  "homepage": "https://github.com/napasun/Study#readme",
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}
