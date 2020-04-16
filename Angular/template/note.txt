@@ -1,0 +1,58 @@
+템플릿
+    웹 애플리케이션에서 작은 뷰에 해당한다. 컴포넌트 마다 템플릿이 있고 컴포너트들이 조합되어 하나의 큰 뷰가 만들어 진다.
+
+컴포넌트 추가 필요
+    import { Component } from '@angular/core';
+
+컴포넌트 장식자와 컴포넌트 클래스를 추가한다.
+    @Component({
+        selector
+        template
+    })
+
+표현식
+    바인딩 기호 {{}} 내에서 사용된다.
+
+명령식
+    (click) = onSave();
+
+연산자 사용불가 목록
+    =, +=, -=
+    ++, --
+    new
+    비트 연산자
+
+파이프 연산자 : 출력 형태를 지정할 때 사용
+    {{ name | uppercase}}
+
+안전 탐색 연산자 : ?.
+    {{my?.a}}
+
+
+바인딩
+    단방향 바인딩
+        [] =
+        bind-target = 
+        () = 
+        on-target = 
+    양방향 바인딩
+        [()] =
+        bindon-target =
+
+단방향
+    삽입식 interpolation
+    프로퍼티 oneway-expression
+    이벤트 oneway-statement
+
+양방향
+    twoway-ngmodel
+
+속성 지시자
+    ngClass : 클래스 이름을 더하거나 해제하는 속성 지시자
+    ngStyle :  css 스타일 속성과 값을 이용해 스타일을 바인딩
+
+구조 지시자
+    ngif
+    ngSwitch
+    ngFor
+
